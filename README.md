@@ -56,7 +56,7 @@ REST is easy peasy with this Hello World RESTEasy resource.
 ## Utilized Dependencies 
 
 ### Default 
-resteasy (jax-rs), Weld (CDI)
+resteasy (jax-rs), arc (CDI)
 
 ### New/Add
 resteasy-jackson (for Parser, example: List to JSON)
