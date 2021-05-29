@@ -1,4 +1,4 @@
-package org.sample.users;
+package org.sample.user;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;

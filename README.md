@@ -1,4 +1,8 @@
-# quarkus-users project
+# quarkus-sample project
+
+Este projeto usa Quarkus e uma arquitetura de MicroServices com Resilience Design Patterns. 
+
+
 
 This project uses Quarkus, the Supersonic Subatomic Java Framework.
 
