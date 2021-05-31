@@ -28,7 +28,7 @@ public class ProductRepository {
 
     public Product findById(Long id){
         Optional<Product> opt = products.stream().filter(p -> p.getId().equals(id)).findFirst();
-        if (opt.isPresent() )
+        if (opt.isPresent())
             return opt.get();
         else
             throw new NotFoundException("Not Found!");
