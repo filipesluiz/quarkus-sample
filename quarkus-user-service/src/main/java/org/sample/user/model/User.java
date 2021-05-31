@@ -1,10 +1,22 @@
 package org.sample.user.model;
 
-public class User {
+import java.io.Serializable;
 
-    private Long id;
+public class User implements Serializable {
+
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 6402604931901183508L;
+
+	private Long id;
 
     private String name;
+
+    public User(Long id, String name) {
+        this.id = id;
+        this.name = name;
+    }
 
     public Long getId() {
         return id;
@@ -22,8 +34,5 @@ public class User {
         this.name = name;
     }
 
-    
 
-    
-    
 }
