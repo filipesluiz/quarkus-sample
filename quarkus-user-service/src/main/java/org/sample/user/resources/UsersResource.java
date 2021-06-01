@@ -10,7 +10,6 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
-import javax.ws.rs.core.Response.Status;
 
 import org.sample.user.model.User;
 import org.sample.user.services.UserService;
@@ -30,12 +29,12 @@ public class UsersResource {
 
     @GET
     @Path("{id}")
-    //@Produces(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
     public Response findById(@PathParam("id") long id) {
         try {
             return Response.ok(service.findById(id), MediaType.APPLICATION_JSON).build();
         } catch (NotFoundException e) {
-            return Response.status(Status.NOT_FOUND).entity("User not found!").build();
+            return Response.status(Response.Status.NOT_FOUND).entity("User not found!").build();
         }
     }
 }
