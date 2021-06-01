@@ -12,6 +12,8 @@ public class Product implements Serializable {
 
     private String description;
 
+    private User user;
+
     public Product(Long id, String name, String description) {
         this.id = id;
         this.name = name;
@@ -41,4 +43,14 @@ public class Product implements Serializable {
     public void setDescription(String description) {
         this.description = description;
     }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    
 }
