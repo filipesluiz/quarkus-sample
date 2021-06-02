@@ -44,3 +44,11 @@ Para executar a aplicação nativa use o comando: `./target/sample-quarkus-1.0.0
 
 ### Dependencias utilizados do Quarkus 
 resteasy-reactive (jax-rs), arc (CDI), resteasy-reactive-jsonb (Parser POJO x JSON), rest-client, rest-client-jsonb
+
+## Autenticação
+## Padrão de Código (Clean Code)
+## Testes
+## Sonar
+## Resilience
+## Cache DB
+## Persistencia DB
