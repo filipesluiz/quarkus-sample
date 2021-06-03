@@ -1,14 +1,18 @@
 package org.sample.resources;
 
-import org.sample.model.Product;
-import org.sample.services.ProductService;
+import java.util.List;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
-import javax.ws.rs.*;
+import javax.ws.rs.GET;
+import javax.ws.rs.NotFoundException;
+import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
+import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
-import java.util.List;
+
+import org.sample.services.ProductService;
 
 @ApplicationScoped
 @Path("/products")

@@ -52,3 +52,5 @@ resteasy-reactive (jax-rs), arc (CDI), resteasy-reactive-jsonb (Parser POJO x JS
 ## Resilience
 ## Cache DB
 ## Persistencia DB
+## Swagger UI
+## Log/Monitoramento/Auditoria

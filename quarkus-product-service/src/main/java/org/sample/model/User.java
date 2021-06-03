@@ -6,5 +6,11 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 public class User {
 
     public Long id;
-    public String name; 
+    public String name;
+
+    public User(Long id, String name) {
+        this.id = id;
+        this.name = name;
+    } 
+
 }

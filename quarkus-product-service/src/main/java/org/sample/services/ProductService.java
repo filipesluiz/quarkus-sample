@@ -1,7 +1,7 @@
 package org.sample.services;
 
 import org.eclipse.microprofile.rest.client.inject.RestClient;
-import org.sample.client.UserService;
+import org.sample.client.UserClient;
 import org.sample.model.Product;
 import org.sample.repository.ProductRepository;
 
@@ -16,7 +16,6 @@ public class ProductService {
     private ProductRepository repository;
  
     @Inject
-    @RestClient
     private UserService userService;
 
     public List<Product> getAll(){
@@ -27,7 +26,7 @@ public class ProductService {
         Product product = repository.findById(id);
 
         if(product != null)
-            product.setUser(userService.findById(product.getId())); 
+            product.setUser(userService.findUserById(product.getId())); 
         
         return product;
     }

@@ -11,7 +11,7 @@ import org.sample.model.User;
 
 @Path("/users")
 @RegisterRestClient
-public interface UserService {
+public interface UserClient {
 
     @GET
     @Path("{id}")
