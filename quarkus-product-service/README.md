@@ -11,7 +11,7 @@ Para executar a aplicação no mode desenvolvedor com hotdeploy (live coding), b
 ```shell script
 ./mvnw compile quarkus:dev
 ```
-> **_NOTE:_** O Quarkus disponibiliza uma página com UI, disponível apenas no modo Dev em http://localhost:8080/q/dev/.
+> **_NOTA:_** O Quarkus disponibiliza uma página com UI, disponível apenas no modo Dev em http://localhost:8080/q/dev/.
 
 ## Gerando e executando o pacote da aplicação
 O pacote da aplicação pode ser gerado usando o comando:
