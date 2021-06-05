@@ -11,7 +11,7 @@ Para executar a aplicação no mode desenvolvedor com hotdeploy (live coding), b
 ```shell script
 ./mvnw compile quarkus:dev
 ```
-> **_NOTE:_** O Quarkus disponibiliza uma página com UI, disponível apenas no modo Dev em http://localhost:8080/q/dev/.
+> **_NOTA:_** O Quarkus disponibiliza uma página com UI, disponível apenas no modo Dev em http://localhost:8080/q/dev/.
 
 ## Gerando e executando o pacote da aplicação
 O pacote da aplicação pode ser gerado usando o comando:
@@ -28,8 +28,8 @@ Para criar um pacote uber-jar, execute o seguinte comando:
 
 Para executar a aplicação com o pacote jar, execute o comando: `java -jar target/quarkus-app/quarkus-run.jar`.
 
-## Criando um executário nativo (Native Executable)
-Para criar um executário nativo utilize o comando: 
+## Criando um executável nativo (Native Executable)
+Para criar um executável nativo utilize o comando: 
 ```shell script
 ./mvnw package -Pnative
 ```
@@ -49,14 +49,7 @@ resteasy-reactive (jax-rs), arc (CDI), resteasy-reactive-jsonb (Parser POJO x JS
 ## Padrão de Código (Clean Code)
 ## Testes
 ## Sonar
-## Resilience - Fault Tolerance 
-
-Padrão de Projeto para arquitetura de microserviços, onde as chamadas são feitas através de trafego de rede, diferente de aplicações monolíticas onde as comunicações entre camadas são feitas em memória (servidor). 
-Fault Tolerance é um tipo de Resilience Pattern para o tratamento de falhas. 
-
-### Resilience - Timeout
-Timeout é um padrão onde é definido um tempo de espera para o serviço consumidor (client) aguardar o retorno. > **_NOTA_** Ver classe: UserClientService
-
+## Resilience
 ## Cache DB
 ## Persistencia DB
 ## Swagger UI

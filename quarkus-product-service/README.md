@@ -49,8 +49,14 @@ resteasy-reactive (jax-rs), arc (CDI), resteasy-reactive-jsonb (Parser POJO x JS
 ## Padrão de Código (Clean Code)
 ## Testes
 ## Sonar
-## Resilience
-## Cache DB
+## Resilience - Fault Tolerance 
+
+Padrão de Projeto para arquitetura de microserviços, onde as chamadas são feitas através de trafego de rede, diferente de aplicações monolíticas onde as comunicações entre camadas são feitas em memória (servidor). 
+Fault Tolerance é um tipo de Resilience Pattern para o tratamento de falhas. 
+
+### Resilience - Timeout
+
+Timeout é um padrão onde é definido um tempo de espera para o serviço consumidor (client) aguardar o retorno. > **_NOTA_** Ver classe: UserClientService## Cache DB
 ## Persistencia DB
 ## Swagger UI
 ## Log/Monitoramento/Auditoria
