@@ -1,7 +1,7 @@
 package org.sample.services;
 
 import org.eclipse.microprofile.rest.client.inject.RestClient;
-import org.sample.client.UserClient;
+import org.sample.client.UserRestClient;
 import org.sample.model.Product;
 import org.sample.repository.ProductRepository;
 
@@ -16,7 +16,7 @@ public class ProductService {
     private ProductRepository repository;
  
     @Inject
-    private UserService userService;
+    private UserClientService userService;
 
     public List<Product> getAll(){
         return repository.getAll();

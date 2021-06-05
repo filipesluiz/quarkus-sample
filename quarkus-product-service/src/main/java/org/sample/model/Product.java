@@ -12,7 +12,7 @@ public class Product implements Serializable {
 
     private String description;
 
-    private User user;
+    private UserClient user;
 
     public Product(Long id, String name, String description) {
         this.id = id;
@@ -44,11 +44,11 @@ public class Product implements Serializable {
         this.description = description;
     }
 
-    public User getUser() {
+    public UserClient getUser() {
         return user;
     }
 
-    public void setUser(User user) {
+    public void setUser(UserClient user) {
         this.user = user;
     }
 

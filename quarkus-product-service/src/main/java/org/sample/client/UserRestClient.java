@@ -7,15 +7,15 @@ import javax.ws.rs.core.MediaType;
 
 import org.eclipse.microprofile.rest.client.inject.RegisterRestClient;
 import org.jboss.resteasy.annotations.jaxrs.PathParam;
-import org.sample.model.User;
+import org.sample.model.UserClient;
 
 @Path("/users")
 @RegisterRestClient
-public interface UserClient {
+public interface UserRestClient {
 
     @GET
     @Path("{id}")
     @Produces(MediaType.APPLICATION_JSON)
-    User findById(@PathParam Long id);
+    UserClient findById(@PathParam Long id);
     
 }
