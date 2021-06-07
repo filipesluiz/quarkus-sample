@@ -22,7 +22,7 @@ public class UserClientService {
     @Retry(maxRetries = 2, delay = 500)
     @Timeout(2000)
     @Fallback(applyOn = CircuitBreakerOpenException.class, fallbackMethod = "findUserByIdFallBack")
-    @CircuitBreaker(successThreshold = 20, requestVolumeThreshold = 5, delay = 1000)
+    @CircuitBreaker(successThreshold = 20, requestVolumeThreshold = 5, delay = 1000, failureRatio = 0.5)
     public UserClient findUserById(long id){
         return client.findById(id);
     }

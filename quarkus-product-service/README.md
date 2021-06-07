@@ -53,11 +53,26 @@ resteasy-reactive (jax-rs), arc (CDI), resteasy-reactive-jsonb (Parser POJO x JS
 
 Padrão de Projeto para arquitetura de microserviços, onde as chamadas são feitas através de trafego de rede, diferente de aplicações monolíticas onde as comunicações entre camadas são feitas em memória (servidor). 
 Fault Tolerance é um tipo de Resilience Pattern para o tratamento de falhas. 
+> **_NOTA_** Ver classe: UserClientService
 
 ### Resilience - Timeout
 
 Timeout é um padrão onde é definido um tempo de espera para o serviço consumidor (client) aguardar o retorno.
-> **_NOTA_** Ver classe: UserClientService
+Na na classe UserClientService foi definido um timeout de 2 segundos. 
+
+### Resilience - Retry
+
+Técnica que consiste em tentar executar o método novamente em caso de erro. Extratamente eficaz em casos de erros esporádicos, como inconsistência de rede. 
+Na aplicação, definimos que serão feitas 2 tentativas e cada uma tem 500 milisegundos de delay (espera). 
+
+### Resilience - Circuit Breaker
+
+Basicamente, consiste em evitar chamadas repetidas de uma lógica que está com falha, como outra serviço que esteja fora ou um cache db que ficou indisponível. Casos em que não é preciso parar todas as funcionalidades da aplicação devido a uma falha específica. 
+Na aplicação, caso ocorra erro em 50% (valor padrão) das requisições, o circuito será ligado por 1 segundo e depois ficará meio aberto (half-open) até ocorrer 20 chamadas consecutivas com sucesso. Quando o circuito é aberto, é lançada uma exceção CircuitBreakerOpenException.
+
+### Resilience - Fall Back
+
+Ajuda a recuperar uma requisição em caso de exceção (erro). No exemplo da aplicação, caso ocorra erro ao obter um Usuário, é retornado um objeto do tipo "User" sem dados relevantes a fim de manter a aplicação funcionando. 
 
 ## Cache DB
 ## Persistencia DB
