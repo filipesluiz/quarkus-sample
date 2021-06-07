@@ -43,7 +43,7 @@ Para executar a aplicação nativa use o comando: `./target/sample-quarkus-1.0.0
 ## Frameworks
 
 ### Dependencias utilizados do Quarkus 
-resteasy-reactive (jax-rs), arc (CDI), resteasy-reactive-jsonb (Parser POJO x JSON)
+resteasy-reactive (jax-rs), arc (CDI), resteasy-reactive-jsonb (Parser POJO x JSON), quarkus-smallrye-openapi (swagger)
 
 ## Autenticação
 ## Padrão de Código (Clean Code)
@@ -53,4 +53,10 @@ resteasy-reactive (jax-rs), arc (CDI), resteasy-reactive-jsonb (Parser POJO x JS
 ## Cache DB
 ## Persistencia DB
 ## Swagger UI
+
+Utilizando a lib OpenApi, o arquivo (yaml) Swagger da aplicação é gerado na chamada do endpoint http://localhost:8080/q/openapi, considerando como padrão a aplicação rodando em localhost. 
+O Swagger UI está disponível na url http://localhost:8081/q/swagger-ui/. 
+Foi mantido a url padrão, mas é possível alterar. Também é possível personalizar a documentação através de anotação ou arquivo de configuração. 
+> **_NOTA:_** Por padrão, o swagger-ui fica disponível apenas a aplicação é executada em modo DEV ou Test.  Para tornar disponível em produção e outros, basta utilizar a propriedade `quarkus.swagger-ui.always-include=true`
+
 ## Log/Monitoramento/Auditoria
