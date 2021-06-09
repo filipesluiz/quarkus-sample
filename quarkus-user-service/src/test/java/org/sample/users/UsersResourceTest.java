@@ -1,21 +1,23 @@
 package org.sample.users;
 
-import io.quarkus.test.junit.QuarkusTest;
+import static io.restassured.RestAssured.given;
+import static org.hamcrest.CoreMatchers.*;
+
 import org.junit.jupiter.api.Test;
 
-import static io.restassured.RestAssured.given;
-import static org.hamcrest.CoreMatchers.is;
+import io.quarkus.test.junit.QuarkusTest;
 
 @QuarkusTest
 public class UsersResourceTest {
 
     @Test
-    public void testHelloEndpoint() {
+    public void testGetAllEndpoint() {
         given()
-          .when().get("/check")
-          .then()
-             .statusCode(200)
-             .body(is("Hello RESTEasy"));
+            .when().get("/users")
+            .then()
+            .statusCode(200)
+            .body("$.size()", not(0), 
+            "[0].id", is(1)); 
     }
 
 }

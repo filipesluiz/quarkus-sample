@@ -48,6 +48,15 @@ resteasy-reactive (jax-rs), arc (CDI), resteasy-reactive-jsonb (Parser POJO x JS
 ## Autenticação
 ## Padrão de Código (Clean Code)
 ## Testes
+
+Para os testes da aplicação é utilizada a ferramenta `Rest-Assured`, que é voltada para a criação de testes automatizados de APIs Rest. Ela oferece suporte para validar protocolo HTTP, JSON, Status Code, Heders, Body e etc. 
+Tambem utilizamos `QuarkusTest` (CDI) e `Junit`.
+
+
+
+
+
+
 ## Sonar
 ## Resilience - Fault Tolerance 
 
