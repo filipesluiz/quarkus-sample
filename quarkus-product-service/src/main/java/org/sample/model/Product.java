@@ -2,6 +2,8 @@ package org.sample.model;
 
 import java.io.Serializable;
 
+import org.sample.client.User;
+
 public class Product implements Serializable {
 
     private static final long serialVersionUID = -7243554022847965126L;
@@ -12,7 +14,7 @@ public class Product implements Serializable {
 
     private String description;
 
-    private UserClient user;
+    private User user;
 
     public Product(Long id, String name, String description) {
         this.id = id;
@@ -44,11 +46,11 @@ public class Product implements Serializable {
         this.description = description;
     }
 
-    public UserClient getUser() {
+    public User getUser() {
         return user;
     }
 
-    public void setUser(UserClient user) {
+    public void setUser(User user) {
         this.user = user;
     }
 

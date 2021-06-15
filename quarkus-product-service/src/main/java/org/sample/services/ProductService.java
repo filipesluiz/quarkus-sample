@@ -1,22 +1,22 @@
 package org.sample.services;
 
-import org.eclipse.microprofile.rest.client.inject.RestClient;
-import org.sample.client.UserRestClient;
-import org.sample.model.Product;
-import org.sample.repository.ProductRepository;
+import java.util.List;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
-import java.util.List;
+
+import org.sample.client.UserResource;
+import org.sample.model.Product;
+import org.sample.repository.ProductRepository;
 
 @ApplicationScoped
 public class ProductService {
 
     @Inject
-    private ProductRepository repository;
+    ProductRepository repository;
  
     @Inject
-    private UserClientService userService;
+    UserResource userService;
 
     public List<Product> getAll(){
         return repository.getAll();

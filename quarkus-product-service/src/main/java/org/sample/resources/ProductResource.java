@@ -19,7 +19,7 @@ import org.sample.services.ProductService;
 public class ProductResource {
 
     @Inject
-    private ProductService service;
+    ProductService service;
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
