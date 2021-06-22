@@ -38,4 +38,12 @@ public class ProductResource {
             return Response.status(Response.Status.NOT_FOUND).entity("Product Not Found!").build();
         }
     }
+
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    public List getAllSecured(){
+        return service.getAll();
+    }
+
+    
 }

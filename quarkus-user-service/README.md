@@ -51,7 +51,8 @@ resteasy-reactive (jax-rs), arc (CDI), resteasy-reactive-jsonb (Parser POJO x JS
 ## Sonar
 ## Resilience
 ## Cache DB
-## Persistencia DB
+## Persistencia DB (DB2 / SP)
+## CICSWS
 ## Swagger UI
 
 Utilizando a lib OpenApi, o arquivo (yaml) Swagger da aplicação é gerado na chamada do endpoint http://localhost:8080/q/openapi, considerando como padrão a aplicação rodando em localhost. 
