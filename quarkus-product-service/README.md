@@ -6,14 +6,44 @@ Os principais Frameworks utilizados nesse projeto estão listados abaixo na sess
 
 Para saber mais sobre o Quarkus, visitar o website: https://quarkus.io/ .
 
-## Rodando a aplicação em mode dev (dev moded)
+# Componentes do Projeto
+
+-   [Backend Core](##Backend-Core)
+
+-   [Executando/Compilando o Projeto](##Executando/Compilando-o-Projeto)
+
+-   [Lista de Dependencias](##Lista-de-Dependencias)
+
+-   [Login / Autenticação](##Login-/-Autenticação)
+
+-   [Padrão de Código (Clean Code)](##Padrão-de-Código-(Clean-Code))
+
+-   [Testes](##Testes)
+
+-   [Sonar](##Sonar)
+
+-   [Resilience: Fault Tolerance](##Resilience:-Fault-Tolerance)
+
+-   [Cache DB](##Cache-DB)
+
+-   [Persistencia DB (DB2 / SP)](##Persistencia-DB-(DB2-/-SP))
+
+-   [CICSWS](##CICSWS)
+
+-   [Swagger](##Swagger)
+
+-   [Log/Monitoramento/Auditoria](##Log/Monitoramento/Auditoria)
+
+## Executando/Compilando o Projeto
+
+### Rodando a aplicação em mode dev (dev moded)
 Para executar a aplicação no mode desenvolvedor com hotdeploy (live coding), basta usar o comando:
 ```shell script
 ./mvnw compile quarkus:dev
 ```
 > **_NOTA:_** O Quarkus disponibiliza uma página com UI, disponível apenas no modo Dev em http://localhost:8080/q/dev/.
 
-## Gerando e executando o pacote da aplicação
+### Gerando e executando o pacote da aplicação
 O pacote da aplicação pode ser gerado usando o comando:
 ```shell script
 ./mvnw package
@@ -28,7 +58,7 @@ Para criar um pacote uber-jar, execute o seguinte comando:
 
 Para executar a aplicação com o pacote jar, execute o comando: `java -jar target/quarkus-app/quarkus-run.jar`.
 
-## Criando um executário nativo (Native Executable)
+### Criando um executário nativo (Native Executable)
 Para criar um executário nativo utilize o comando: 
 ```shell script
 ./mvnw package -Pnative
@@ -40,24 +70,29 @@ Se não tiver instalado o GraalVM na máquina, é possível criar um container c
 
 Para executar a aplicação nativa use o comando: `./target/sample-quarkus-1.0.0-SNAPSHOT-runner`
 
-## Frameworks
+## Lista de Dependencias 
+-   resteasy-reactive (jax-rs)
+-   arc (CDI)
+-   resteasy-reactive-jsonb (Parser POJO x JSON) 
+-   rest-client
+-   rest-client-jsonb
+-   quarkus-smallrye-openapi (swagger) 
+-   quarkus-elytron-security-oauth2 (Oauth2)
+-   quarkus-cxf
 
-### Dependencias utilizados do Quarkus 
-resteasy-reactive (jax-rs), arc (CDI), resteasy-reactive-jsonb (Parser POJO x JSON), rest-client, rest-client-jsonb, quarkus-smallrye-openapi (swagger), 
-quarkus-elytron-security-oauth2 (Oauth2 / J)
-
-## Autenticação
+## Login / Autenticação
 Autenticação/autorização para acessar o Endpoint utiliza o protocolo Oauth2, através do Elytron Security Oauth2 que implementa parte da JSR 250. 
 > **_NOTA_** Ver: Classe ProductSesource.java, método getAllSecured e referência: https://quarkus.io/guides/security 
 
 ## Padrão de Código (Clean Code)
+
 ## Testes
 
 Para os testes da aplicação é utilizada a ferramenta `Rest-Assured`, que é voltada para a criação de testes automatizados de APIs Rest. Ela oferece suporte para validar protocolo HTTP, JSON, Status Code, Heders, Body e etc. 
 Tambem utilizamos `QuarkusTest` (CDI) e `Junit`.
 
 ## Sonar
-## Resilience - Fault Tolerance 
+## Resilience: Fault Tolerance 
 
 Padrão de Projeto para arquitetura de microserviços, onde as chamadas são feitas através de trafego de rede, diferente de aplicações monolíticas onde as comunicações entre camadas são feitas em memória (servidor). 
 Fault Tolerance é um tipo de Resilience Pattern para o tratamento de falhas. 
@@ -83,9 +118,18 @@ Na aplicação, caso ocorra erro em 50% (valor padrão) das requisições, o cir
 Ajuda a recuperar uma requisição em caso de exceção (erro). No exemplo da aplicação, caso ocorra erro ao obter um Usuário, é retornado um objeto do tipo "User" sem dados relevantes a fim de manter a aplicação funcionando. 
 
 ## Cache DB
+
+-   Redis
+
 ## Persistencia DB (DB2 / SP)
+
 ## CICSWS
-## Swagger UI
+
+Foi implementado um WS Client baseado no WSDL. O Apache CXF foi escolhido pois é o Framework utilizando para implementar JAXWS no Quarkus, através da dependencia quarkus-cxf. A extensão CXF do Quarkus está atualmente na versão beta 0.8. 
+
+> **_NOTA:_** Ver a classe `GSJPO700Port_GSJPO700Port_Client` e documentação disponível no site https://quarkiverse.github.io/quarkiverse-docs/quarkus-cxf/dev/index.html. 
+
+## Swagger 
 
 Utilizando a lib OpenApi, o arquivo (yaml) Swagger da aplicação é gerado na chamada do endpoint http://localhost:8080/q/openapi, considerando como padrão a aplicação rodando em localhost. 
 O Swagger UI está disponível na url http://localhost:8081/q/swagger-ui/. 
@@ -93,3 +137,4 @@ Foi mantido a url padrão, mas é possível alterar. Também é possível person
 > **_NOTA:_** Por padrão, o swagger-ui fica disponível apenas a aplicação é executada em modo DEV ou Test.  Para tornar disponível em produção e outros, basta utilizar a propriedade `quarkus.swagger-ui.always-include=true`
 
 ## Log/Monitoramento/Auditoria
+## Backend Core

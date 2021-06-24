@@ -4,7 +4,13 @@
     // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
     "version": "0.2.0",
     "configurations": [
-        
+        {
+            "type": "java",
+            "name": "Launch GSJPO700Port_GSJPO700Port_Client",
+            "request": "launch",
+            "mainClass": "br.gov.caixa.sigsj.validacontacredito.GSJPO700Port_GSJPO700Port_Client",
+            "projectName": "quarkus-product-service"
+        },
         {
             "preLaunchTask": "quarkus:dev (quarkus-product-service)",
             "type": "java",

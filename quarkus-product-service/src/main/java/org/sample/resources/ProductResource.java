@@ -41,6 +41,7 @@ public class ProductResource {
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
+    @Path("secutity")
     public List getAllSecured(){
         return service.getAll();
     }

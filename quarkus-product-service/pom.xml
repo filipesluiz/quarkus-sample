@@ -72,6 +72,11 @@
       <groupId>io.quarkus</groupId>
       <artifactId>quarkus-elytron-security-oauth2</artifactId>
     </dependency>
+    <dependency>
+      <groupId>io.quarkiverse.cxf</groupId>
+      <artifactId>quarkus-cxf</artifactId>
+      <version>0.8</version>
+    </dependency>
   </dependencies>
   <build>
     <plugins>
