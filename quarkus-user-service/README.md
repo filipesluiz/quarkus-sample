@@ -72,9 +72,9 @@ Se não tiver instalado o GraalVM na máquina, é possível criar um container c
 Para executar a aplicação nativa use o comando: `./target/sample-quarkus-1.0.0-SNAPSHOT-runner`
 
 ## Lista de Dependencias 
--   resteasy-reactive (jax-rs)
+-   resteasy (jax-rs)
 -   arc (CDI)
--   resteasy-reactive-jsonb (Parser POJO x JSON)
+-   resteasy-jsonb (Parser POJO x JSON)
 -   quarkus-smallrye-openapi (swagger)
 
 ## Login / Autenticação

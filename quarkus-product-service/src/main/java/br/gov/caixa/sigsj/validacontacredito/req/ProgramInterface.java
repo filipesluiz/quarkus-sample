@@ -7,136 +7,6 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 
-
-/**
- * &lt;p&gt;Classe Java de ProgramInterface complex type.
- * 
- * &lt;p&gt;O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
- * 
- * &lt;pre&gt;
- * &amp;lt;complexType name="ProgramInterface"&amp;gt;
- *   &amp;lt;complexContent&amp;gt;
- *     &amp;lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&amp;gt;
- *       &amp;lt;sequence&amp;gt;
- *         &amp;lt;element name="ValidaContaCredito"&amp;gt;
- *           &amp;lt;complexType&amp;gt;
- *             &amp;lt;complexContent&amp;gt;
- *               &amp;lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&amp;gt;
- *                 &amp;lt;sequence&amp;gt;
- *                   &amp;lt;element name="Entrada"&amp;gt;
- *                     &amp;lt;complexType&amp;gt;
- *                       &amp;lt;complexContent&amp;gt;
- *                         &amp;lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&amp;gt;
- *                           &amp;lt;sequence&amp;gt;
- *                             &amp;lt;element name="TipoJustica"&amp;gt;
- *                               &amp;lt;simpleType&amp;gt;
- *                                 &amp;lt;restriction base="{http://www.w3.org/2001/XMLSchema}unsignedShort"&amp;gt;
- *                                   &amp;lt;maxInclusive value="99"/&amp;gt;
- *                                   &amp;lt;minInclusive value="0"/&amp;gt;
- *                                 &amp;lt;/restriction&amp;gt;
- *                               &amp;lt;/simpleType&amp;gt;
- *                             &amp;lt;/element&amp;gt;
- *                             &amp;lt;element name="NumeroTribunal"&amp;gt;
- *                               &amp;lt;simpleType&amp;gt;
- *                                 &amp;lt;restriction base="{http://www.w3.org/2001/XMLSchema}unsignedShort"&amp;gt;
- *                                   &amp;lt;maxInclusive value="9999"/&amp;gt;
- *                                   &amp;lt;minInclusive value="0"/&amp;gt;
- *                                 &amp;lt;/restriction&amp;gt;
- *                               &amp;lt;/simpleType&amp;gt;
- *                             &amp;lt;/element&amp;gt;
- *                             &amp;lt;element name="CodigoIP"&amp;gt;
- *                               &amp;lt;simpleType&amp;gt;
- *                                 &amp;lt;restriction base="{http://www.w3.org/2001/XMLSchema}string"&amp;gt;
- *                                   &amp;lt;maxLength value="15"/&amp;gt;
- *                                   &amp;lt;whiteSpace value="collapse"/&amp;gt;
- *                                 &amp;lt;/restriction&amp;gt;
- *                               &amp;lt;/simpleType&amp;gt;
- *                             &amp;lt;/element&amp;gt;
- *                             &amp;lt;element name="CodigoUsuario"&amp;gt;
- *                               &amp;lt;simpleType&amp;gt;
- *                                 &amp;lt;restriction base="{http://www.w3.org/2001/XMLSchema}string"&amp;gt;
- *                                   &amp;lt;maxLength value="8"/&amp;gt;
- *                                   &amp;lt;whiteSpace value="collapse"/&amp;gt;
- *                                 &amp;lt;/restriction&amp;gt;
- *                               &amp;lt;/simpleType&amp;gt;
- *                             &amp;lt;/element&amp;gt;
- *                             &amp;lt;element name="Conta"&amp;gt;
- *                               &amp;lt;complexType&amp;gt;
- *                                 &amp;lt;complexContent&amp;gt;
- *                                   &amp;lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&amp;gt;
- *                                     &amp;lt;sequence&amp;gt;
- *                                       &amp;lt;element name="NumeroAgencia"&amp;gt;
- *                                         &amp;lt;simpleType&amp;gt;
- *                                           &amp;lt;restriction base="{http://www.w3.org/2001/XMLSchema}unsignedShort"&amp;gt;
- *                                             &amp;lt;maxInclusive value="9999"/&amp;gt;
- *                                             &amp;lt;minInclusive value="0"/&amp;gt;
- *                                           &amp;lt;/restriction&amp;gt;
- *                                         &amp;lt;/simpleType&amp;gt;
- *                                       &amp;lt;/element&amp;gt;
- *                                       &amp;lt;element name="NumeroProduto"&amp;gt;
- *                                         &amp;lt;simpleType&amp;gt;
- *                                           &amp;lt;restriction base="{http://www.w3.org/2001/XMLSchema}unsignedShort"&amp;gt;
- *                                             &amp;lt;maxInclusive value="9999"/&amp;gt;
- *                                             &amp;lt;minInclusive value="0"/&amp;gt;
- *                                           &amp;lt;/restriction&amp;gt;
- *                                         &amp;lt;/simpleType&amp;gt;
- *                                       &amp;lt;/element&amp;gt;
- *                                       &amp;lt;element name="NumeroConta"&amp;gt;
- *                                         &amp;lt;simpleType&amp;gt;
- *                                           &amp;lt;restriction base="{http://www.w3.org/2001/XMLSchema}unsignedLong"&amp;gt;
- *                                             &amp;lt;maxInclusive value="999999999999"/&amp;gt;
- *                                             &amp;lt;minInclusive value="0"/&amp;gt;
- *                                           &amp;lt;/restriction&amp;gt;
- *                                         &amp;lt;/simpleType&amp;gt;
- *                                       &amp;lt;/element&amp;gt;
- *                                       &amp;lt;element name="DVConta"&amp;gt;
- *                                         &amp;lt;simpleType&amp;gt;
- *                                           &amp;lt;restriction base="{http://www.w3.org/2001/XMLSchema}unsignedShort"&amp;gt;
- *                                             &amp;lt;maxInclusive value="9"/&amp;gt;
- *                                             &amp;lt;minInclusive value="0"/&amp;gt;
- *                                           &amp;lt;/restriction&amp;gt;
- *                                         &amp;lt;/simpleType&amp;gt;
- *                                       &amp;lt;/element&amp;gt;
- *                                     &amp;lt;/sequence&amp;gt;
- *                                   &amp;lt;/restriction&amp;gt;
- *                                 &amp;lt;/complexContent&amp;gt;
- *                               &amp;lt;/complexType&amp;gt;
- *                             &amp;lt;/element&amp;gt;
- *                             &amp;lt;element name="NumeroDocumentoSacador"&amp;gt;
- *                               &amp;lt;simpleType&amp;gt;
- *                                 &amp;lt;restriction base="{http://www.w3.org/2001/XMLSchema}unsignedLong"&amp;gt;
- *                                   &amp;lt;maxInclusive value="99999999999999"/&amp;gt;
- *                                   &amp;lt;minInclusive value="0"/&amp;gt;
- *                                 &amp;lt;/restriction&amp;gt;
- *                               &amp;lt;/simpleType&amp;gt;
- *                             &amp;lt;/element&amp;gt;
- *                             &amp;lt;element name="ValorCredito"&amp;gt;
- *                               &amp;lt;simpleType&amp;gt;
- *                                 &amp;lt;restriction base="{http://www.w3.org/2001/XMLSchema}decimal"&amp;gt;
- *                                   &amp;lt;totalDigits value="15"/&amp;gt;
- *                                   &amp;lt;fractionDigits value="2"/&amp;gt;
- *                                   &amp;lt;minInclusive value="0"/&amp;gt;
- *                                 &amp;lt;/restriction&amp;gt;
- *                               &amp;lt;/simpleType&amp;gt;
- *                             &amp;lt;/element&amp;gt;
- *                           &amp;lt;/sequence&amp;gt;
- *                         &amp;lt;/restriction&amp;gt;
- *                       &amp;lt;/complexContent&amp;gt;
- *                     &amp;lt;/complexType&amp;gt;
- *                   &amp;lt;/element&amp;gt;
- *                 &amp;lt;/sequence&amp;gt;
- *               &amp;lt;/restriction&amp;gt;
- *             &amp;lt;/complexContent&amp;gt;
- *           &amp;lt;/complexType&amp;gt;
- *         &amp;lt;/element&amp;gt;
- *       &amp;lt;/sequence&amp;gt;
- *     &amp;lt;/restriction&amp;gt;
- *   &amp;lt;/complexContent&amp;gt;
- * &amp;lt;/complexType&amp;gt;
- * &lt;/pre&gt;
- * 
- * 
- */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "ProgramInterface", propOrder = {
     "validaContaCredito"
@@ -147,7 +17,7 @@ public class ProgramInterface {
     protected ProgramInterface.ValidaContaCredito validaContaCredito;
 
     /**
-     * Obtém o valor da propriedade validaContaCredito.
+     * Obtem o valor da propriedade validaContaCredito.
      * 
      * @return
      *     possible object is
@@ -171,125 +41,7 @@ public class ProgramInterface {
     }
 
 
-    /**
-     * &lt;p&gt;Classe Java de anonymous complex type.
-     * 
-     * &lt;p&gt;O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
-     * 
-     * &lt;pre&gt;
-     * &amp;lt;complexType&amp;gt;
-     *   &amp;lt;complexContent&amp;gt;
-     *     &amp;lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&amp;gt;
-     *       &amp;lt;sequence&amp;gt;
-     *         &amp;lt;element name="Entrada"&amp;gt;
-     *           &amp;lt;complexType&amp;gt;
-     *             &amp;lt;complexContent&amp;gt;
-     *               &amp;lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&amp;gt;
-     *                 &amp;lt;sequence&amp;gt;
-     *                   &amp;lt;element name="TipoJustica"&amp;gt;
-     *                     &amp;lt;simpleType&amp;gt;
-     *                       &amp;lt;restriction base="{http://www.w3.org/2001/XMLSchema}unsignedShort"&amp;gt;
-     *                         &amp;lt;maxInclusive value="99"/&amp;gt;
-     *                         &amp;lt;minInclusive value="0"/&amp;gt;
-     *                       &amp;lt;/restriction&amp;gt;
-     *                     &amp;lt;/simpleType&amp;gt;
-     *                   &amp;lt;/element&amp;gt;
-     *                   &amp;lt;element name="NumeroTribunal"&amp;gt;
-     *                     &amp;lt;simpleType&amp;gt;
-     *                       &amp;lt;restriction base="{http://www.w3.org/2001/XMLSchema}unsignedShort"&amp;gt;
-     *                         &amp;lt;maxInclusive value="9999"/&amp;gt;
-     *                         &amp;lt;minInclusive value="0"/&amp;gt;
-     *                       &amp;lt;/restriction&amp;gt;
-     *                     &amp;lt;/simpleType&amp;gt;
-     *                   &amp;lt;/element&amp;gt;
-     *                   &amp;lt;element name="CodigoIP"&amp;gt;
-     *                     &amp;lt;simpleType&amp;gt;
-     *                       &amp;lt;restriction base="{http://www.w3.org/2001/XMLSchema}string"&amp;gt;
-     *                         &amp;lt;maxLength value="15"/&amp;gt;
-     *                         &amp;lt;whiteSpace value="collapse"/&amp;gt;
-     *                       &amp;lt;/restriction&amp;gt;
-     *                     &amp;lt;/simpleType&amp;gt;
-     *                   &amp;lt;/element&amp;gt;
-     *                   &amp;lt;element name="CodigoUsuario"&amp;gt;
-     *                     &amp;lt;simpleType&amp;gt;
-     *                       &amp;lt;restriction base="{http://www.w3.org/2001/XMLSchema}string"&amp;gt;
-     *                         &amp;lt;maxLength value="8"/&amp;gt;
-     *                         &amp;lt;whiteSpace value="collapse"/&amp;gt;
-     *                       &amp;lt;/restriction&amp;gt;
-     *                     &amp;lt;/simpleType&amp;gt;
-     *                   &amp;lt;/element&amp;gt;
-     *                   &amp;lt;element name="Conta"&amp;gt;
-     *                     &amp;lt;complexType&amp;gt;
-     *                       &amp;lt;complexContent&amp;gt;
-     *                         &amp;lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&amp;gt;
-     *                           &amp;lt;sequence&amp;gt;
-     *                             &amp;lt;element name="NumeroAgencia"&amp;gt;
-     *                               &amp;lt;simpleType&amp;gt;
-     *                                 &amp;lt;restriction base="{http://www.w3.org/2001/XMLSchema}unsignedShort"&amp;gt;
-     *                                   &amp;lt;maxInclusive value="9999"/&amp;gt;
-     *                                   &amp;lt;minInclusive value="0"/&amp;gt;
-     *                                 &amp;lt;/restriction&amp;gt;
-     *                               &amp;lt;/simpleType&amp;gt;
-     *                             &amp;lt;/element&amp;gt;
-     *                             &amp;lt;element name="NumeroProduto"&amp;gt;
-     *                               &amp;lt;simpleType&amp;gt;
-     *                                 &amp;lt;restriction base="{http://www.w3.org/2001/XMLSchema}unsignedShort"&amp;gt;
-     *                                   &amp;lt;maxInclusive value="9999"/&amp;gt;
-     *                                   &amp;lt;minInclusive value="0"/&amp;gt;
-     *                                 &amp;lt;/restriction&amp;gt;
-     *                               &amp;lt;/simpleType&amp;gt;
-     *                             &amp;lt;/element&amp;gt;
-     *                             &amp;lt;element name="NumeroConta"&amp;gt;
-     *                               &amp;lt;simpleType&amp;gt;
-     *                                 &amp;lt;restriction base="{http://www.w3.org/2001/XMLSchema}unsignedLong"&amp;gt;
-     *                                   &amp;lt;maxInclusive value="999999999999"/&amp;gt;
-     *                                   &amp;lt;minInclusive value="0"/&amp;gt;
-     *                                 &amp;lt;/restriction&amp;gt;
-     *                               &amp;lt;/simpleType&amp;gt;
-     *                             &amp;lt;/element&amp;gt;
-     *                             &amp;lt;element name="DVConta"&amp;gt;
-     *                               &amp;lt;simpleType&amp;gt;
-     *                                 &amp;lt;restriction base="{http://www.w3.org/2001/XMLSchema}unsignedShort"&amp;gt;
-     *                                   &amp;lt;maxInclusive value="9"/&amp;gt;
-     *                                   &amp;lt;minInclusive value="0"/&amp;gt;
-     *                                 &amp;lt;/restriction&amp;gt;
-     *                               &amp;lt;/simpleType&amp;gt;
-     *                             &amp;lt;/element&amp;gt;
-     *                           &amp;lt;/sequence&amp;gt;
-     *                         &amp;lt;/restriction&amp;gt;
-     *                       &amp;lt;/complexContent&amp;gt;
-     *                     &amp;lt;/complexType&amp;gt;
-     *                   &amp;lt;/element&amp;gt;
-     *                   &amp;lt;element name="NumeroDocumentoSacador"&amp;gt;
-     *                     &amp;lt;simpleType&amp;gt;
-     *                       &amp;lt;restriction base="{http://www.w3.org/2001/XMLSchema}unsignedLong"&amp;gt;
-     *                         &amp;lt;maxInclusive value="99999999999999"/&amp;gt;
-     *                         &amp;lt;minInclusive value="0"/&amp;gt;
-     *                       &amp;lt;/restriction&amp;gt;
-     *                     &amp;lt;/simpleType&amp;gt;
-     *                   &amp;lt;/element&amp;gt;
-     *                   &amp;lt;element name="ValorCredito"&amp;gt;
-     *                     &amp;lt;simpleType&amp;gt;
-     *                       &amp;lt;restriction base="{http://www.w3.org/2001/XMLSchema}decimal"&amp;gt;
-     *                         &amp;lt;totalDigits value="15"/&amp;gt;
-     *                         &amp;lt;fractionDigits value="2"/&amp;gt;
-     *                         &amp;lt;minInclusive value="0"/&amp;gt;
-     *                       &amp;lt;/restriction&amp;gt;
-     *                     &amp;lt;/simpleType&amp;gt;
-     *                   &amp;lt;/element&amp;gt;
-     *                 &amp;lt;/sequence&amp;gt;
-     *               &amp;lt;/restriction&amp;gt;
-     *             &amp;lt;/complexContent&amp;gt;
-     *           &amp;lt;/complexType&amp;gt;
-     *         &amp;lt;/element&amp;gt;
-     *       &amp;lt;/sequence&amp;gt;
-     *     &amp;lt;/restriction&amp;gt;
-     *   &amp;lt;/complexContent&amp;gt;
-     * &amp;lt;/complexType&amp;gt;
-     * &lt;/pre&gt;
-     * 
-     * 
-     */
+   
     @XmlAccessorType(XmlAccessType.FIELD)
     @XmlType(name = "", propOrder = {
         "entrada"
@@ -300,7 +52,7 @@ public class ProgramInterface {
         protected ProgramInterface.ValidaContaCredito.Entrada entrada;
 
         /**
-         * Obtém o valor da propriedade entrada.
+         * Obtem o valor da propriedade entrada.
          * 
          * @return
          *     possible object is
@@ -324,115 +76,6 @@ public class ProgramInterface {
         }
 
 
-        /**
-         * &lt;p&gt;Classe Java de anonymous complex type.
-         * 
-         * &lt;p&gt;O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
-         * 
-         * &lt;pre&gt;
-         * &amp;lt;complexType&amp;gt;
-         *   &amp;lt;complexContent&amp;gt;
-         *     &amp;lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&amp;gt;
-         *       &amp;lt;sequence&amp;gt;
-         *         &amp;lt;element name="TipoJustica"&amp;gt;
-         *           &amp;lt;simpleType&amp;gt;
-         *             &amp;lt;restriction base="{http://www.w3.org/2001/XMLSchema}unsignedShort"&amp;gt;
-         *               &amp;lt;maxInclusive value="99"/&amp;gt;
-         *               &amp;lt;minInclusive value="0"/&amp;gt;
-         *             &amp;lt;/restriction&amp;gt;
-         *           &amp;lt;/simpleType&amp;gt;
-         *         &amp;lt;/element&amp;gt;
-         *         &amp;lt;element name="NumeroTribunal"&amp;gt;
-         *           &amp;lt;simpleType&amp;gt;
-         *             &amp;lt;restriction base="{http://www.w3.org/2001/XMLSchema}unsignedShort"&amp;gt;
-         *               &amp;lt;maxInclusive value="9999"/&amp;gt;
-         *               &amp;lt;minInclusive value="0"/&amp;gt;
-         *             &amp;lt;/restriction&amp;gt;
-         *           &amp;lt;/simpleType&amp;gt;
-         *         &amp;lt;/element&amp;gt;
-         *         &amp;lt;element name="CodigoIP"&amp;gt;
-         *           &amp;lt;simpleType&amp;gt;
-         *             &amp;lt;restriction base="{http://www.w3.org/2001/XMLSchema}string"&amp;gt;
-         *               &amp;lt;maxLength value="15"/&amp;gt;
-         *               &amp;lt;whiteSpace value="collapse"/&amp;gt;
-         *             &amp;lt;/restriction&amp;gt;
-         *           &amp;lt;/simpleType&amp;gt;
-         *         &amp;lt;/element&amp;gt;
-         *         &amp;lt;element name="CodigoUsuario"&amp;gt;
-         *           &amp;lt;simpleType&amp;gt;
-         *             &amp;lt;restriction base="{http://www.w3.org/2001/XMLSchema}string"&amp;gt;
-         *               &amp;lt;maxLength value="8"/&amp;gt;
-         *               &amp;lt;whiteSpace value="collapse"/&amp;gt;
-         *             &amp;lt;/restriction&amp;gt;
-         *           &amp;lt;/simpleType&amp;gt;
-         *         &amp;lt;/element&amp;gt;
-         *         &amp;lt;element name="Conta"&amp;gt;
-         *           &amp;lt;complexType&amp;gt;
-         *             &amp;lt;complexContent&amp;gt;
-         *               &amp;lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&amp;gt;
-         *                 &amp;lt;sequence&amp;gt;
-         *                   &amp;lt;element name="NumeroAgencia"&amp;gt;
-         *                     &amp;lt;simpleType&amp;gt;
-         *                       &amp;lt;restriction base="{http://www.w3.org/2001/XMLSchema}unsignedShort"&amp;gt;
-         *                         &amp;lt;maxInclusive value="9999"/&amp;gt;
-         *                         &amp;lt;minInclusive value="0"/&amp;gt;
-         *                       &amp;lt;/restriction&amp;gt;
-         *                     &amp;lt;/simpleType&amp;gt;
-         *                   &amp;lt;/element&amp;gt;
-         *                   &amp;lt;element name="NumeroProduto"&amp;gt;
-         *                     &amp;lt;simpleType&amp;gt;
-         *                       &amp;lt;restriction base="{http://www.w3.org/2001/XMLSchema}unsignedShort"&amp;gt;
-         *                         &amp;lt;maxInclusive value="9999"/&amp;gt;
-         *                         &amp;lt;minInclusive value="0"/&amp;gt;
-         *                       &amp;lt;/restriction&amp;gt;
-         *                     &amp;lt;/simpleType&amp;gt;
-         *                   &amp;lt;/element&amp;gt;
-         *                   &amp;lt;element name="NumeroConta"&amp;gt;
-         *                     &amp;lt;simpleType&amp;gt;
-         *                       &amp;lt;restriction base="{http://www.w3.org/2001/XMLSchema}unsignedLong"&amp;gt;
-         *                         &amp;lt;maxInclusive value="999999999999"/&amp;gt;
-         *                         &amp;lt;minInclusive value="0"/&amp;gt;
-         *                       &amp;lt;/restriction&amp;gt;
-         *                     &amp;lt;/simpleType&amp;gt;
-         *                   &amp;lt;/element&amp;gt;
-         *                   &amp;lt;element name="DVConta"&amp;gt;
-         *                     &amp;lt;simpleType&amp;gt;
-         *                       &amp;lt;restriction base="{http://www.w3.org/2001/XMLSchema}unsignedShort"&amp;gt;
-         *                         &amp;lt;maxInclusive value="9"/&amp;gt;
-         *                         &amp;lt;minInclusive value="0"/&amp;gt;
-         *                       &amp;lt;/restriction&amp;gt;
-         *                     &amp;lt;/simpleType&amp;gt;
-         *                   &amp;lt;/element&amp;gt;
-         *                 &amp;lt;/sequence&amp;gt;
-         *               &amp;lt;/restriction&amp;gt;
-         *             &amp;lt;/complexContent&amp;gt;
-         *           &amp;lt;/complexType&amp;gt;
-         *         &amp;lt;/element&amp;gt;
-         *         &amp;lt;element name="NumeroDocumentoSacador"&amp;gt;
-         *           &amp;lt;simpleType&amp;gt;
-         *             &amp;lt;restriction base="{http://www.w3.org/2001/XMLSchema}unsignedLong"&amp;gt;
-         *               &amp;lt;maxInclusive value="99999999999999"/&amp;gt;
-         *               &amp;lt;minInclusive value="0"/&amp;gt;
-         *             &amp;lt;/restriction&amp;gt;
-         *           &amp;lt;/simpleType&amp;gt;
-         *         &amp;lt;/element&amp;gt;
-         *         &amp;lt;element name="ValorCredito"&amp;gt;
-         *           &amp;lt;simpleType&amp;gt;
-         *             &amp;lt;restriction base="{http://www.w3.org/2001/XMLSchema}decimal"&amp;gt;
-         *               &amp;lt;totalDigits value="15"/&amp;gt;
-         *               &amp;lt;fractionDigits value="2"/&amp;gt;
-         *               &amp;lt;minInclusive value="0"/&amp;gt;
-         *             &amp;lt;/restriction&amp;gt;
-         *           &amp;lt;/simpleType&amp;gt;
-         *         &amp;lt;/element&amp;gt;
-         *       &amp;lt;/sequence&amp;gt;
-         *     &amp;lt;/restriction&amp;gt;
-         *   &amp;lt;/complexContent&amp;gt;
-         * &amp;lt;/complexType&amp;gt;
-         * &lt;/pre&gt;
-         * 
-         * 
-         */
         @XmlAccessorType(XmlAccessType.FIELD)
         @XmlType(name = "", propOrder = {
             "tipoJustica",
@@ -461,7 +104,7 @@ public class ProgramInterface {
             protected BigDecimal valorCredito;
 
             /**
-             * Obtém o valor da propriedade tipoJustica.
+             * Obtem o valor da propriedade tipoJustica.
              * 
              */
             public int getTipoJustica() {
@@ -477,7 +120,7 @@ public class ProgramInterface {
             }
 
             /**
-             * Obtém o valor da propriedade numeroTribunal.
+             * Obtem o valor da propriedade numeroTribunal.
              * 
              */
             public int getNumeroTribunal() {
@@ -493,7 +136,7 @@ public class ProgramInterface {
             }
 
             /**
-             * Obtém o valor da propriedade codigoIP.
+             * Obtem o valor da propriedade codigoIP.
              * 
              * @return
              *     possible object is
@@ -517,7 +160,7 @@ public class ProgramInterface {
             }
 
             /**
-             * Obtém o valor da propriedade codigoUsuario.
+             * Obtï¿½m o valor da propriedade codigoUsuario.
              * 
              * @return
              *     possible object is
@@ -541,7 +184,7 @@ public class ProgramInterface {
             }
 
             /**
-             * Obtém o valor da propriedade conta.
+             * Obtï¿½m o valor da propriedade conta.
              * 
              * @return
              *     possible object is
@@ -565,7 +208,7 @@ public class ProgramInterface {
             }
 
             /**
-             * Obtém o valor da propriedade numeroDocumentoSacador.
+             * Obtï¿½m o valor da propriedade numeroDocumentoSacador.
              * 
              */
             public long getNumeroDocumentoSacador() {
@@ -581,7 +224,7 @@ public class ProgramInterface {
             }
 
             /**
-             * Obtém o valor da propriedade valorCredito.
+             * Obtï¿½m o valor da propriedade valorCredito.
              * 
              * @return
              *     possible object is
@@ -605,56 +248,7 @@ public class ProgramInterface {
             }
 
 
-            /**
-             * &lt;p&gt;Classe Java de anonymous complex type.
-             * 
-             * &lt;p&gt;O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
-             * 
-             * &lt;pre&gt;
-             * &amp;lt;complexType&amp;gt;
-             *   &amp;lt;complexContent&amp;gt;
-             *     &amp;lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&amp;gt;
-             *       &amp;lt;sequence&amp;gt;
-             *         &amp;lt;element name="NumeroAgencia"&amp;gt;
-             *           &amp;lt;simpleType&amp;gt;
-             *             &amp;lt;restriction base="{http://www.w3.org/2001/XMLSchema}unsignedShort"&amp;gt;
-             *               &amp;lt;maxInclusive value="9999"/&amp;gt;
-             *               &amp;lt;minInclusive value="0"/&amp;gt;
-             *             &amp;lt;/restriction&amp;gt;
-             *           &amp;lt;/simpleType&amp;gt;
-             *         &amp;lt;/element&amp;gt;
-             *         &amp;lt;element name="NumeroProduto"&amp;gt;
-             *           &amp;lt;simpleType&amp;gt;
-             *             &amp;lt;restriction base="{http://www.w3.org/2001/XMLSchema}unsignedShort"&amp;gt;
-             *               &amp;lt;maxInclusive value="9999"/&amp;gt;
-             *               &amp;lt;minInclusive value="0"/&amp;gt;
-             *             &amp;lt;/restriction&amp;gt;
-             *           &amp;lt;/simpleType&amp;gt;
-             *         &amp;lt;/element&amp;gt;
-             *         &amp;lt;element name="NumeroConta"&amp;gt;
-             *           &amp;lt;simpleType&amp;gt;
-             *             &amp;lt;restriction base="{http://www.w3.org/2001/XMLSchema}unsignedLong"&amp;gt;
-             *               &amp;lt;maxInclusive value="999999999999"/&amp;gt;
-             *               &amp;lt;minInclusive value="0"/&amp;gt;
-             *             &amp;lt;/restriction&amp;gt;
-             *           &amp;lt;/simpleType&amp;gt;
-             *         &amp;lt;/element&amp;gt;
-             *         &amp;lt;element name="DVConta"&amp;gt;
-             *           &amp;lt;simpleType&amp;gt;
-             *             &amp;lt;restriction base="{http://www.w3.org/2001/XMLSchema}unsignedShort"&amp;gt;
-             *               &amp;lt;maxInclusive value="9"/&amp;gt;
-             *               &amp;lt;minInclusive value="0"/&amp;gt;
-             *             &amp;lt;/restriction&amp;gt;
-             *           &amp;lt;/simpleType&amp;gt;
-             *         &amp;lt;/element&amp;gt;
-             *       &amp;lt;/sequence&amp;gt;
-             *     &amp;lt;/restriction&amp;gt;
-             *   &amp;lt;/complexContent&amp;gt;
-             * &amp;lt;/complexType&amp;gt;
-             * &lt;/pre&gt;
-             * 
-             * 
-             */
+            
             @XmlAccessorType(XmlAccessType.FIELD)
             @XmlType(name = "", propOrder = {
                 "numeroAgencia",
@@ -674,7 +268,7 @@ public class ProgramInterface {
                 protected int dvConta;
 
                 /**
-                 * Obtém o valor da propriedade numeroAgencia.
+                 * Obtem o valor da propriedade numeroAgencia.
                  * 
                  */
                 public int getNumeroAgencia() {
@@ -690,7 +284,7 @@ public class ProgramInterface {
                 }
 
                 /**
-                 * Obtém o valor da propriedade numeroProduto.
+                 * Obtem o valor da propriedade numeroProduto.
                  * 
                  */
                 public int getNumeroProduto() {
@@ -706,7 +300,7 @@ public class ProgramInterface {
                 }
 
                 /**
-                 * Obtém o valor da propriedade numeroConta.
+                 * Obtem o valor da propriedade numeroConta.
                  * 
                  */
                 public long getNumeroConta() {
@@ -722,7 +316,7 @@ public class ProgramInterface {
                 }
 
                 /**
-                 * Obtém o valor da propriedade dvConta.
+                 * Obtem o valor da propriedade dvConta.
                  * 
                  */
                 public int getDVConta() {

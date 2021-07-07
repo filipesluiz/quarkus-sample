@@ -7,134 +7,7 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 
 
-/**
- * &lt;p&gt;Classe Java de ProgramInterface complex type.
- * 
- * &lt;p&gt;O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
- * 
- * &lt;pre&gt;
- * &amp;lt;complexType name="ProgramInterface"&amp;gt;
- *   &amp;lt;complexContent&amp;gt;
- *     &amp;lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&amp;gt;
- *       &amp;lt;sequence&amp;gt;
- *         &amp;lt;element name="ValidaContaCredito"&amp;gt;
- *           &amp;lt;complexType&amp;gt;
- *             &amp;lt;complexContent&amp;gt;
- *               &amp;lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&amp;gt;
- *                 &amp;lt;sequence&amp;gt;
- *                   &amp;lt;element name="Saida"&amp;gt;
- *                     &amp;lt;complexType&amp;gt;
- *                       &amp;lt;complexContent&amp;gt;
- *                         &amp;lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&amp;gt;
- *                           &amp;lt;sequence&amp;gt;
- *                             &amp;lt;element name="NumeroRetorno"&amp;gt;
- *                               &amp;lt;simpleType&amp;gt;
- *                                 &amp;lt;restriction base="{http://www.w3.org/2001/XMLSchema}unsignedShort"&amp;gt;
- *                                   &amp;lt;maxInclusive value="99"/&amp;gt;
- *                                   &amp;lt;minInclusive value="0"/&amp;gt;
- *                                 &amp;lt;/restriction&amp;gt;
- *                               &amp;lt;/simpleType&amp;gt;
- *                             &amp;lt;/element&amp;gt;
- *                             &amp;lt;element name="NumeroVersao"&amp;gt;
- *                               &amp;lt;simpleType&amp;gt;
- *                                 &amp;lt;restriction base="{http://www.w3.org/2001/XMLSchema}unsignedShort"&amp;gt;
- *                                   &amp;lt;maxInclusive value="9999"/&amp;gt;
- *                                   &amp;lt;minInclusive value="0"/&amp;gt;
- *                                 &amp;lt;/restriction&amp;gt;
- *                               &amp;lt;/simpleType&amp;gt;
- *                             &amp;lt;/element&amp;gt;
- *                             &amp;lt;element name="NumeroControle"&amp;gt;
- *                               &amp;lt;simpleType&amp;gt;
- *                                 &amp;lt;restriction base="{http://www.w3.org/2001/XMLSchema}unsignedShort"&amp;gt;
- *                                   &amp;lt;maxInclusive value="9999"/&amp;gt;
- *                                   &amp;lt;minInclusive value="0"/&amp;gt;
- *                                 &amp;lt;/restriction&amp;gt;
- *                               &amp;lt;/simpleType&amp;gt;
- *                             &amp;lt;/element&amp;gt;
- *                             &amp;lt;element name="DescricaoMensagem"&amp;gt;
- *                               &amp;lt;simpleType&amp;gt;
- *                                 &amp;lt;restriction base="{http://www.w3.org/2001/XMLSchema}string"&amp;gt;
- *                                   &amp;lt;maxLength value="500"/&amp;gt;
- *                                   &amp;lt;whiteSpace value="collapse"/&amp;gt;
- *                                 &amp;lt;/restriction&amp;gt;
- *                               &amp;lt;/simpleType&amp;gt;
- *                             &amp;lt;/element&amp;gt;
- *                             &amp;lt;element name="DetalheErro"&amp;gt;
- *                               &amp;lt;complexType&amp;gt;
- *                                 &amp;lt;complexContent&amp;gt;
- *                                   &amp;lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&amp;gt;
- *                                     &amp;lt;sequence&amp;gt;
- *                                       &amp;lt;element name="NumeroRetornoDB"&amp;gt;
- *                                         &amp;lt;simpleType&amp;gt;
- *                                           &amp;lt;restriction base="{http://www.w3.org/2001/XMLSchema}int"&amp;gt;
- *                                             &amp;lt;maxInclusive value="999999999"/&amp;gt;
- *                                             &amp;lt;minInclusive value="-999999999"/&amp;gt;
- *                                           &amp;lt;/restriction&amp;gt;
- *                                         &amp;lt;/simpleType&amp;gt;
- *                                       &amp;lt;/element&amp;gt;
- *                                       &amp;lt;element name="NumeroRetornoTransacao"&amp;gt;
- *                                         &amp;lt;simpleType&amp;gt;
- *                                           &amp;lt;restriction base="{http://www.w3.org/2001/XMLSchema}int"&amp;gt;
- *                                             &amp;lt;maxInclusive value="999999999"/&amp;gt;
- *                                             &amp;lt;minInclusive value="-999999999"/&amp;gt;
- *                                           &amp;lt;/restriction&amp;gt;
- *                                         &amp;lt;/simpleType&amp;gt;
- *                                       &amp;lt;/element&amp;gt;
- *                                       &amp;lt;element name="NumeroRetornoTransacao2"&amp;gt;
- *                                         &amp;lt;simpleType&amp;gt;
- *                                           &amp;lt;restriction base="{http://www.w3.org/2001/XMLSchema}int"&amp;gt;
- *                                             &amp;lt;maxInclusive value="999999999"/&amp;gt;
- *                                             &amp;lt;minInclusive value="-999999999"/&amp;gt;
- *                                           &amp;lt;/restriction&amp;gt;
- *                                         &amp;lt;/simpleType&amp;gt;
- *                                       &amp;lt;/element&amp;gt;
- *                                       &amp;lt;element name="CodigoRotina"&amp;gt;
- *                                         &amp;lt;simpleType&amp;gt;
- *                                           &amp;lt;restriction base="{http://www.w3.org/2001/XMLSchema}string"&amp;gt;
- *                                             &amp;lt;maxLength value="8"/&amp;gt;
- *                                             &amp;lt;whiteSpace value="collapse"/&amp;gt;
- *                                           &amp;lt;/restriction&amp;gt;
- *                                         &amp;lt;/simpleType&amp;gt;
- *                                       &amp;lt;/element&amp;gt;
- *                                       &amp;lt;element name="CodigoRetornoRotina"&amp;gt;
- *                                         &amp;lt;simpleType&amp;gt;
- *                                           &amp;lt;restriction base="{http://www.w3.org/2001/XMLSchema}string"&amp;gt;
- *                                             &amp;lt;maxLength value="5"/&amp;gt;
- *                                             &amp;lt;whiteSpace value="collapse"/&amp;gt;
- *                                           &amp;lt;/restriction&amp;gt;
- *                                         &amp;lt;/simpleType&amp;gt;
- *                                       &amp;lt;/element&amp;gt;
- *                                       &amp;lt;element name="DescricaoErro"&amp;gt;
- *                                         &amp;lt;simpleType&amp;gt;
- *                                           &amp;lt;restriction base="{http://www.w3.org/2001/XMLSchema}string"&amp;gt;
- *                                             &amp;lt;maxLength value="500"/&amp;gt;
- *                                             &amp;lt;whiteSpace value="collapse"/&amp;gt;
- *                                           &amp;lt;/restriction&amp;gt;
- *                                         &amp;lt;/simpleType&amp;gt;
- *                                       &amp;lt;/element&amp;gt;
- *                                     &amp;lt;/sequence&amp;gt;
- *                                   &amp;lt;/restriction&amp;gt;
- *                                 &amp;lt;/complexContent&amp;gt;
- *                               &amp;lt;/complexType&amp;gt;
- *                             &amp;lt;/element&amp;gt;
- *                           &amp;lt;/sequence&amp;gt;
- *                         &amp;lt;/restriction&amp;gt;
- *                       &amp;lt;/complexContent&amp;gt;
- *                     &amp;lt;/complexType&amp;gt;
- *                   &amp;lt;/element&amp;gt;
- *                 &amp;lt;/sequence&amp;gt;
- *               &amp;lt;/restriction&amp;gt;
- *             &amp;lt;/complexContent&amp;gt;
- *           &amp;lt;/complexType&amp;gt;
- *         &amp;lt;/element&amp;gt;
- *       &amp;lt;/sequence&amp;gt;
- *     &amp;lt;/restriction&amp;gt;
- *   &amp;lt;/complexContent&amp;gt;
- * &amp;lt;/complexType&amp;gt;
- * &lt;/pre&gt;
- * 
- * 
- */
+
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "ProgramInterface", propOrder = {
     "validaContaCredito"
@@ -145,7 +18,7 @@ public class ProgramInterface {
     protected ProgramInterface.ValidaContaCredito validaContaCredito;
 
     /**
-     * Obtém o valor da propriedade validaContaCredito.
+     * Obtem o valor da propriedade validaContaCredito.
      * 
      * @return
      *     possible object is
@@ -169,124 +42,7 @@ public class ProgramInterface {
     }
 
 
-    /**
-     * &lt;p&gt;Classe Java de anonymous complex type.
-     * 
-     * &lt;p&gt;O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
-     * 
-     * &lt;pre&gt;
-     * &amp;lt;complexType&amp;gt;
-     *   &amp;lt;complexContent&amp;gt;
-     *     &amp;lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&amp;gt;
-     *       &amp;lt;sequence&amp;gt;
-     *         &amp;lt;element name="Saida"&amp;gt;
-     *           &amp;lt;complexType&amp;gt;
-     *             &amp;lt;complexContent&amp;gt;
-     *               &amp;lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&amp;gt;
-     *                 &amp;lt;sequence&amp;gt;
-     *                   &amp;lt;element name="NumeroRetorno"&amp;gt;
-     *                     &amp;lt;simpleType&amp;gt;
-     *                       &amp;lt;restriction base="{http://www.w3.org/2001/XMLSchema}unsignedShort"&amp;gt;
-     *                         &amp;lt;maxInclusive value="99"/&amp;gt;
-     *                         &amp;lt;minInclusive value="0"/&amp;gt;
-     *                       &amp;lt;/restriction&amp;gt;
-     *                     &amp;lt;/simpleType&amp;gt;
-     *                   &amp;lt;/element&amp;gt;
-     *                   &amp;lt;element name="NumeroVersao"&amp;gt;
-     *                     &amp;lt;simpleType&amp;gt;
-     *                       &amp;lt;restriction base="{http://www.w3.org/2001/XMLSchema}unsignedShort"&amp;gt;
-     *                         &amp;lt;maxInclusive value="9999"/&amp;gt;
-     *                         &amp;lt;minInclusive value="0"/&amp;gt;
-     *                       &amp;lt;/restriction&amp;gt;
-     *                     &amp;lt;/simpleType&amp;gt;
-     *                   &amp;lt;/element&amp;gt;
-     *                   &amp;lt;element name="NumeroControle"&amp;gt;
-     *                     &amp;lt;simpleType&amp;gt;
-     *                       &amp;lt;restriction base="{http://www.w3.org/2001/XMLSchema}unsignedShort"&amp;gt;
-     *                         &amp;lt;maxInclusive value="9999"/&amp;gt;
-     *                         &amp;lt;minInclusive value="0"/&amp;gt;
-     *                       &amp;lt;/restriction&amp;gt;
-     *                     &amp;lt;/simpleType&amp;gt;
-     *                   &amp;lt;/element&amp;gt;
-     *                   &amp;lt;element name="DescricaoMensagem"&amp;gt;
-     *                     &amp;lt;simpleType&amp;gt;
-     *                       &amp;lt;restriction base="{http://www.w3.org/2001/XMLSchema}string"&amp;gt;
-     *                         &amp;lt;maxLength value="500"/&amp;gt;
-     *                         &amp;lt;whiteSpace value="collapse"/&amp;gt;
-     *                       &amp;lt;/restriction&amp;gt;
-     *                     &amp;lt;/simpleType&amp;gt;
-     *                   &amp;lt;/element&amp;gt;
-     *                   &amp;lt;element name="DetalheErro"&amp;gt;
-     *                     &amp;lt;complexType&amp;gt;
-     *                       &amp;lt;complexContent&amp;gt;
-     *                         &amp;lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&amp;gt;
-     *                           &amp;lt;sequence&amp;gt;
-     *                             &amp;lt;element name="NumeroRetornoDB"&amp;gt;
-     *                               &amp;lt;simpleType&amp;gt;
-     *                                 &amp;lt;restriction base="{http://www.w3.org/2001/XMLSchema}int"&amp;gt;
-     *                                   &amp;lt;maxInclusive value="999999999"/&amp;gt;
-     *                                   &amp;lt;minInclusive value="-999999999"/&amp;gt;
-     *                                 &amp;lt;/restriction&amp;gt;
-     *                               &amp;lt;/simpleType&amp;gt;
-     *                             &amp;lt;/element&amp;gt;
-     *                             &amp;lt;element name="NumeroRetornoTransacao"&amp;gt;
-     *                               &amp;lt;simpleType&amp;gt;
-     *                                 &amp;lt;restriction base="{http://www.w3.org/2001/XMLSchema}int"&amp;gt;
-     *                                   &amp;lt;maxInclusive value="999999999"/&amp;gt;
-     *                                   &amp;lt;minInclusive value="-999999999"/&amp;gt;
-     *                                 &amp;lt;/restriction&amp;gt;
-     *                               &amp;lt;/simpleType&amp;gt;
-     *                             &amp;lt;/element&amp;gt;
-     *                             &amp;lt;element name="NumeroRetornoTransacao2"&amp;gt;
-     *                               &amp;lt;simpleType&amp;gt;
-     *                                 &amp;lt;restriction base="{http://www.w3.org/2001/XMLSchema}int"&amp;gt;
-     *                                   &amp;lt;maxInclusive value="999999999"/&amp;gt;
-     *                                   &amp;lt;minInclusive value="-999999999"/&amp;gt;
-     *                                 &amp;lt;/restriction&amp;gt;
-     *                               &amp;lt;/simpleType&amp;gt;
-     *                             &amp;lt;/element&amp;gt;
-     *                             &amp;lt;element name="CodigoRotina"&amp;gt;
-     *                               &amp;lt;simpleType&amp;gt;
-     *                                 &amp;lt;restriction base="{http://www.w3.org/2001/XMLSchema}string"&amp;gt;
-     *                                   &amp;lt;maxLength value="8"/&amp;gt;
-     *                                   &amp;lt;whiteSpace value="collapse"/&amp;gt;
-     *                                 &amp;lt;/restriction&amp;gt;
-     *                               &amp;lt;/simpleType&amp;gt;
-     *                             &amp;lt;/element&amp;gt;
-     *                             &amp;lt;element name="CodigoRetornoRotina"&amp;gt;
-     *                               &amp;lt;simpleType&amp;gt;
-     *                                 &amp;lt;restriction base="{http://www.w3.org/2001/XMLSchema}string"&amp;gt;
-     *                                   &amp;lt;maxLength value="5"/&amp;gt;
-     *                                   &amp;lt;whiteSpace value="collapse"/&amp;gt;
-     *                                 &amp;lt;/restriction&amp;gt;
-     *                               &amp;lt;/simpleType&amp;gt;
-     *                             &amp;lt;/element&amp;gt;
-     *                             &amp;lt;element name="DescricaoErro"&amp;gt;
-     *                               &amp;lt;simpleType&amp;gt;
-     *                                 &amp;lt;restriction base="{http://www.w3.org/2001/XMLSchema}string"&amp;gt;
-     *                                   &amp;lt;maxLength value="500"/&amp;gt;
-     *                                   &amp;lt;whiteSpace value="collapse"/&amp;gt;
-     *                                 &amp;lt;/restriction&amp;gt;
-     *                               &amp;lt;/simpleType&amp;gt;
-     *                             &amp;lt;/element&amp;gt;
-     *                           &amp;lt;/sequence&amp;gt;
-     *                         &amp;lt;/restriction&amp;gt;
-     *                       &amp;lt;/complexContent&amp;gt;
-     *                     &amp;lt;/complexType&amp;gt;
-     *                   &amp;lt;/element&amp;gt;
-     *                 &amp;lt;/sequence&amp;gt;
-     *               &amp;lt;/restriction&amp;gt;
-     *             &amp;lt;/complexContent&amp;gt;
-     *           &amp;lt;/complexType&amp;gt;
-     *         &amp;lt;/element&amp;gt;
-     *       &amp;lt;/sequence&amp;gt;
-     *     &amp;lt;/restriction&amp;gt;
-     *   &amp;lt;/complexContent&amp;gt;
-     * &amp;lt;/complexType&amp;gt;
-     * &lt;/pre&gt;
-     * 
-     * 
-     */
+    
     @XmlAccessorType(XmlAccessType.FIELD)
     @XmlType(name = "", propOrder = {
         "saida"
@@ -297,7 +53,7 @@ public class ProgramInterface {
         protected ProgramInterface.ValidaContaCredito.Saida saida;
 
         /**
-         * Obtém o valor da propriedade saida.
+         * Obtem o valor da propriedade saida.
          * 
          * @return
          *     possible object is
@@ -321,114 +77,7 @@ public class ProgramInterface {
         }
 
 
-        /**
-         * &lt;p&gt;Classe Java de anonymous complex type.
-         * 
-         * &lt;p&gt;O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
-         * 
-         * &lt;pre&gt;
-         * &amp;lt;complexType&amp;gt;
-         *   &amp;lt;complexContent&amp;gt;
-         *     &amp;lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&amp;gt;
-         *       &amp;lt;sequence&amp;gt;
-         *         &amp;lt;element name="NumeroRetorno"&amp;gt;
-         *           &amp;lt;simpleType&amp;gt;
-         *             &amp;lt;restriction base="{http://www.w3.org/2001/XMLSchema}unsignedShort"&amp;gt;
-         *               &amp;lt;maxInclusive value="99"/&amp;gt;
-         *               &amp;lt;minInclusive value="0"/&amp;gt;
-         *             &amp;lt;/restriction&amp;gt;
-         *           &amp;lt;/simpleType&amp;gt;
-         *         &amp;lt;/element&amp;gt;
-         *         &amp;lt;element name="NumeroVersao"&amp;gt;
-         *           &amp;lt;simpleType&amp;gt;
-         *             &amp;lt;restriction base="{http://www.w3.org/2001/XMLSchema}unsignedShort"&amp;gt;
-         *               &amp;lt;maxInclusive value="9999"/&amp;gt;
-         *               &amp;lt;minInclusive value="0"/&amp;gt;
-         *             &amp;lt;/restriction&amp;gt;
-         *           &amp;lt;/simpleType&amp;gt;
-         *         &amp;lt;/element&amp;gt;
-         *         &amp;lt;element name="NumeroControle"&amp;gt;
-         *           &amp;lt;simpleType&amp;gt;
-         *             &amp;lt;restriction base="{http://www.w3.org/2001/XMLSchema}unsignedShort"&amp;gt;
-         *               &amp;lt;maxInclusive value="9999"/&amp;gt;
-         *               &amp;lt;minInclusive value="0"/&amp;gt;
-         *             &amp;lt;/restriction&amp;gt;
-         *           &amp;lt;/simpleType&amp;gt;
-         *         &amp;lt;/element&amp;gt;
-         *         &amp;lt;element name="DescricaoMensagem"&amp;gt;
-         *           &amp;lt;simpleType&amp;gt;
-         *             &amp;lt;restriction base="{http://www.w3.org/2001/XMLSchema}string"&amp;gt;
-         *               &amp;lt;maxLength value="500"/&amp;gt;
-         *               &amp;lt;whiteSpace value="collapse"/&amp;gt;
-         *             &amp;lt;/restriction&amp;gt;
-         *           &amp;lt;/simpleType&amp;gt;
-         *         &amp;lt;/element&amp;gt;
-         *         &amp;lt;element name="DetalheErro"&amp;gt;
-         *           &amp;lt;complexType&amp;gt;
-         *             &amp;lt;complexContent&amp;gt;
-         *               &amp;lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&amp;gt;
-         *                 &amp;lt;sequence&amp;gt;
-         *                   &amp;lt;element name="NumeroRetornoDB"&amp;gt;
-         *                     &amp;lt;simpleType&amp;gt;
-         *                       &amp;lt;restriction base="{http://www.w3.org/2001/XMLSchema}int"&amp;gt;
-         *                         &amp;lt;maxInclusive value="999999999"/&amp;gt;
-         *                         &amp;lt;minInclusive value="-999999999"/&amp;gt;
-         *                       &amp;lt;/restriction&amp;gt;
-         *                     &amp;lt;/simpleType&amp;gt;
-         *                   &amp;lt;/element&amp;gt;
-         *                   &amp;lt;element name="NumeroRetornoTransacao"&amp;gt;
-         *                     &amp;lt;simpleType&amp;gt;
-         *                       &amp;lt;restriction base="{http://www.w3.org/2001/XMLSchema}int"&amp;gt;
-         *                         &amp;lt;maxInclusive value="999999999"/&amp;gt;
-         *                         &amp;lt;minInclusive value="-999999999"/&amp;gt;
-         *                       &amp;lt;/restriction&amp;gt;
-         *                     &amp;lt;/simpleType&amp;gt;
-         *                   &amp;lt;/element&amp;gt;
-         *                   &amp;lt;element name="NumeroRetornoTransacao2"&amp;gt;
-         *                     &amp;lt;simpleType&amp;gt;
-         *                       &amp;lt;restriction base="{http://www.w3.org/2001/XMLSchema}int"&amp;gt;
-         *                         &amp;lt;maxInclusive value="999999999"/&amp;gt;
-         *                         &amp;lt;minInclusive value="-999999999"/&amp;gt;
-         *                       &amp;lt;/restriction&amp;gt;
-         *                     &amp;lt;/simpleType&amp;gt;
-         *                   &amp;lt;/element&amp;gt;
-         *                   &amp;lt;element name="CodigoRotina"&amp;gt;
-         *                     &amp;lt;simpleType&amp;gt;
-         *                       &amp;lt;restriction base="{http://www.w3.org/2001/XMLSchema}string"&amp;gt;
-         *                         &amp;lt;maxLength value="8"/&amp;gt;
-         *                         &amp;lt;whiteSpace value="collapse"/&amp;gt;
-         *                       &amp;lt;/restriction&amp;gt;
-         *                     &amp;lt;/simpleType&amp;gt;
-         *                   &amp;lt;/element&amp;gt;
-         *                   &amp;lt;element name="CodigoRetornoRotina"&amp;gt;
-         *                     &amp;lt;simpleType&amp;gt;
-         *                       &amp;lt;restriction base="{http://www.w3.org/2001/XMLSchema}string"&amp;gt;
-         *                         &amp;lt;maxLength value="5"/&amp;gt;
-         *                         &amp;lt;whiteSpace value="collapse"/&amp;gt;
-         *                       &amp;lt;/restriction&amp;gt;
-         *                     &amp;lt;/simpleType&amp;gt;
-         *                   &amp;lt;/element&amp;gt;
-         *                   &amp;lt;element name="DescricaoErro"&amp;gt;
-         *                     &amp;lt;simpleType&amp;gt;
-         *                       &amp;lt;restriction base="{http://www.w3.org/2001/XMLSchema}string"&amp;gt;
-         *                         &amp;lt;maxLength value="500"/&amp;gt;
-         *                         &amp;lt;whiteSpace value="collapse"/&amp;gt;
-         *                       &amp;lt;/restriction&amp;gt;
-         *                     &amp;lt;/simpleType&amp;gt;
-         *                   &amp;lt;/element&amp;gt;
-         *                 &amp;lt;/sequence&amp;gt;
-         *               &amp;lt;/restriction&amp;gt;
-         *             &amp;lt;/complexContent&amp;gt;
-         *           &amp;lt;/complexType&amp;gt;
-         *         &amp;lt;/element&amp;gt;
-         *       &amp;lt;/sequence&amp;gt;
-         *     &amp;lt;/restriction&amp;gt;
-         *   &amp;lt;/complexContent&amp;gt;
-         * &amp;lt;/complexType&amp;gt;
-         * &lt;/pre&gt;
-         * 
-         * 
-         */
+       
         @XmlAccessorType(XmlAccessType.FIELD)
         @XmlType(name = "", propOrder = {
             "numeroRetorno",
@@ -451,7 +100,7 @@ public class ProgramInterface {
             protected ProgramInterface.ValidaContaCredito.Saida.DetalheErro detalheErro;
 
             /**
-             * Obtém o valor da propriedade numeroRetorno.
+             * Obtem o valor da propriedade numeroRetorno.
              * 
              */
             public int getNumeroRetorno() {
@@ -467,7 +116,7 @@ public class ProgramInterface {
             }
 
             /**
-             * Obtém o valor da propriedade numeroVersao.
+             * Obtem o valor da propriedade numeroVersao.
              * 
              */
             public int getNumeroVersao() {
@@ -483,7 +132,7 @@ public class ProgramInterface {
             }
 
             /**
-             * Obtém o valor da propriedade numeroControle.
+             * Obtem o valor da propriedade numeroControle.
              * 
              */
             public int getNumeroControle() {
@@ -499,7 +148,7 @@ public class ProgramInterface {
             }
 
             /**
-             * Obtém o valor da propriedade descricaoMensagem.
+             * Obtem o valor da propriedade descricaoMensagem.
              * 
              * @return
              *     possible object is
@@ -523,7 +172,7 @@ public class ProgramInterface {
             }
 
             /**
-             * Obtém o valor da propriedade detalheErro.
+             * Obtem o valor da propriedade detalheErro.
              * 
              * @return
              *     possible object is
@@ -547,72 +196,7 @@ public class ProgramInterface {
             }
 
 
-            /**
-             * &lt;p&gt;Classe Java de anonymous complex type.
-             * 
-             * &lt;p&gt;O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
-             * 
-             * &lt;pre&gt;
-             * &amp;lt;complexType&amp;gt;
-             *   &amp;lt;complexContent&amp;gt;
-             *     &amp;lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&amp;gt;
-             *       &amp;lt;sequence&amp;gt;
-             *         &amp;lt;element name="NumeroRetornoDB"&amp;gt;
-             *           &amp;lt;simpleType&amp;gt;
-             *             &amp;lt;restriction base="{http://www.w3.org/2001/XMLSchema}int"&amp;gt;
-             *               &amp;lt;maxInclusive value="999999999"/&amp;gt;
-             *               &amp;lt;minInclusive value="-999999999"/&amp;gt;
-             *             &amp;lt;/restriction&amp;gt;
-             *           &amp;lt;/simpleType&amp;gt;
-             *         &amp;lt;/element&amp;gt;
-             *         &amp;lt;element name="NumeroRetornoTransacao"&amp;gt;
-             *           &amp;lt;simpleType&amp;gt;
-             *             &amp;lt;restriction base="{http://www.w3.org/2001/XMLSchema}int"&amp;gt;
-             *               &amp;lt;maxInclusive value="999999999"/&amp;gt;
-             *               &amp;lt;minInclusive value="-999999999"/&amp;gt;
-             *             &amp;lt;/restriction&amp;gt;
-             *           &amp;lt;/simpleType&amp;gt;
-             *         &amp;lt;/element&amp;gt;
-             *         &amp;lt;element name="NumeroRetornoTransacao2"&amp;gt;
-             *           &amp;lt;simpleType&amp;gt;
-             *             &amp;lt;restriction base="{http://www.w3.org/2001/XMLSchema}int"&amp;gt;
-             *               &amp;lt;maxInclusive value="999999999"/&amp;gt;
-             *               &amp;lt;minInclusive value="-999999999"/&amp;gt;
-             *             &amp;lt;/restriction&amp;gt;
-             *           &amp;lt;/simpleType&amp;gt;
-             *         &amp;lt;/element&amp;gt;
-             *         &amp;lt;element name="CodigoRotina"&amp;gt;
-             *           &amp;lt;simpleType&amp;gt;
-             *             &amp;lt;restriction base="{http://www.w3.org/2001/XMLSchema}string"&amp;gt;
-             *               &amp;lt;maxLength value="8"/&amp;gt;
-             *               &amp;lt;whiteSpace value="collapse"/&amp;gt;
-             *             &amp;lt;/restriction&amp;gt;
-             *           &amp;lt;/simpleType&amp;gt;
-             *         &amp;lt;/element&amp;gt;
-             *         &amp;lt;element name="CodigoRetornoRotina"&amp;gt;
-             *           &amp;lt;simpleType&amp;gt;
-             *             &amp;lt;restriction base="{http://www.w3.org/2001/XMLSchema}string"&amp;gt;
-             *               &amp;lt;maxLength value="5"/&amp;gt;
-             *               &amp;lt;whiteSpace value="collapse"/&amp;gt;
-             *             &amp;lt;/restriction&amp;gt;
-             *           &amp;lt;/simpleType&amp;gt;
-             *         &amp;lt;/element&amp;gt;
-             *         &amp;lt;element name="DescricaoErro"&amp;gt;
-             *           &amp;lt;simpleType&amp;gt;
-             *             &amp;lt;restriction base="{http://www.w3.org/2001/XMLSchema}string"&amp;gt;
-             *               &amp;lt;maxLength value="500"/&amp;gt;
-             *               &amp;lt;whiteSpace value="collapse"/&amp;gt;
-             *             &amp;lt;/restriction&amp;gt;
-             *           &amp;lt;/simpleType&amp;gt;
-             *         &amp;lt;/element&amp;gt;
-             *       &amp;lt;/sequence&amp;gt;
-             *     &amp;lt;/restriction&amp;gt;
-             *   &amp;lt;/complexContent&amp;gt;
-             * &amp;lt;/complexType&amp;gt;
-             * &lt;/pre&gt;
-             * 
-             * 
-             */
+            
             @XmlAccessorType(XmlAccessType.FIELD)
             @XmlType(name = "", propOrder = {
                 "numeroRetornoDB",
@@ -638,7 +222,7 @@ public class ProgramInterface {
                 protected String descricaoErro;
 
                 /**
-                 * Obtém o valor da propriedade numeroRetornoDB.
+                 * Obtem o valor da propriedade numeroRetornoDB.
                  * 
                  */
                 public int getNumeroRetornoDB() {
@@ -654,7 +238,7 @@ public class ProgramInterface {
                 }
 
                 /**
-                 * Obtém o valor da propriedade numeroRetornoTransacao.
+                 * Obtem o valor da propriedade numeroRetornoTransacao.
                  * 
                  */
                 public int getNumeroRetornoTransacao() {
@@ -670,7 +254,7 @@ public class ProgramInterface {
                 }
 
                 /**
-                 * Obtém o valor da propriedade numeroRetornoTransacao2.
+                 * Obtem o valor da propriedade numeroRetornoTransacao2.
                  * 
                  */
                 public int getNumeroRetornoTransacao2() {
@@ -686,7 +270,7 @@ public class ProgramInterface {
                 }
 
                 /**
-                 * Obtém o valor da propriedade codigoRotina.
+                 * Obtem o valor da propriedade codigoRotina.
                  * 
                  * @return
                  *     possible object is
@@ -710,7 +294,7 @@ public class ProgramInterface {
                 }
 
                 /**
-                 * Obtém o valor da propriedade codigoRetornoRotina.
+                 * Obtem o valor da propriedade codigoRetornoRotina.
                  * 
                  * @return
                  *     possible object is
@@ -734,7 +318,7 @@ public class ProgramInterface {
                 }
 
                 /**
-                 * Obtém o valor da propriedade descricaoErro.
+                 * Obtem o valor da propriedade descricaoErro.
                  * 
                  * @return
                  *     possible object is

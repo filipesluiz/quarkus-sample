@@ -2,19 +2,31 @@ package org.sample.model;
 
 import java.io.Serializable;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Transient;
+
 import org.sample.client.User;
 
+@Entity
 public class Product implements Serializable {
 
     private static final long serialVersionUID = -7243554022847965126L;
 
+    @Id
     private Long id;
 
+    @Column
     private String name;
 
+    @Column
     private String description;
 
+    @Transient
     private User user;
+
+    public Product(){}
 
     public Product(Long id, String name, String description) {
         this.id = id;
