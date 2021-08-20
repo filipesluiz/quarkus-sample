@@ -22,17 +22,17 @@ public class ProductResourceTest {
              .body("$.size()", not(0));
     }
 
-    @Test
-    public void testFindById() {
-        given()
-          .when().get("/products/1")
-          .then()
-          .statusCode(200)
-          .body("id", is(1));
-        // Response response = given()
-        //   .when().get("/products/1");
+    // @Test
+    // public void testFindById() {
+    //     given()
+    //       .when().get("/products/1")
+    //       .then()
+    //       .statusCode(200)
+    //       .body("id", is(1));
+    //     // Response response = given()
+    //     //   .when().get("/products/1");
 
-        // System.out.println(response.asString());
-    }
+    //     // System.out.println(response.asString());
+    // }
 
 }

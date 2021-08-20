@@ -2,28 +2,28 @@ package br.gov.caixa.sigsj.model;
 
 import java.io.Serializable;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Transient;
+// import javax.persistence.Column;
+// import javax.persistence.Entity;
+// import javax.persistence.Id;
+// import javax.persistence.Transient;
 
 import br.gov.caixa.sigsj.client.User;
 
-@Entity
+//@Entity
 public class Product implements Serializable {
 
     private static final long serialVersionUID = -7243554022847965126L;
 
-    @Id
+    //@Id
     private Long id;
 
-    @Column
+    // @Column
     private String name;
 
-    @Column
+    // @Column
     private String description;
 
-    @Transient
+    // @Transient
     private User user;
 
     public Product(){}

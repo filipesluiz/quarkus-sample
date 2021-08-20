@@ -1,4 +1,4 @@
-package org.sample;
+package br.gov.caixa.sigsj;
 
 import io.quarkus.test.junit.NativeImageTest;
 

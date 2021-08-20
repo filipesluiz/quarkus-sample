@@ -7,11 +7,11 @@ import java.util.Optional;
 import javax.annotation.PostConstruct;
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
-import javax.persistence.EntityManager;
-import javax.persistence.ParameterMode;
+// import javax.persistence.EntityManager;
+// import javax.persistence.ParameterMode;
 import javax.ws.rs.NotFoundException;
 
-import org.hibernate.procedure.ProcedureCall;
+// import org.hibernate.procedure.ProcedureCall;
 
 import br.gov.caixa.sigsj.model.Product;
 
@@ -20,8 +20,8 @@ public class ProductRepository {
 
     private List<Product> products;
 
-    @Inject
-    EntityManager entityManager;
+    // @Inject
+    // EntityManager entityManager;
 
     @PostConstruct
     public void init(){
@@ -44,16 +44,16 @@ public class ProductRepository {
             throw new NotFoundException("Not Found!");
     }
 
-    private List<Product> callSP(){
-        try {
-            ProcedureCall sp = entityManager.createStoredProcedureQuery("sp_consulta_produto").unwrap(ProcedureCall.class);
-            sp.registerParameter("ID", Integer.TYPE, ParameterMode.IN);
-            sp.setParameter("ID", 1);
-            sp.execute();
-            List result = sp.getResultList();
-            return result;
-        }catch (Exception e) {
-           throw e;
-        }
-    }
+    // private List<Product> callSP(){
+    //     try {
+    //         ProcedureCall sp = entityManager.createStoredProcedureQuery("sp_consulta_produto").unwrap(ProcedureCall.class);
+    //         sp.registerParameter("ID", Integer.TYPE, ParameterMode.IN);
+    //         sp.setParameter("ID", 1);
+    //         sp.execute();
+    //         List result = sp.getResultList();
+    //         return result;
+    //     }catch (Exception e) {
+    //        throw e;
+    //     }
+    // }
 }
