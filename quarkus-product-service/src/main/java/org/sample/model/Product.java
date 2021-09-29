@@ -9,15 +9,24 @@ import javax.persistence.Transient;
 
 import org.sample.client.User;
 
+import core.persistence.entity.NamedSP;
+import core.persistence.entity.NamedSPs;
+
 @Entity
+@NamedSPs( 
+    @NamedSP(name = Product.FIND, paramsIn =  {"P_ID", "P_NAME"})
+)
 public class Product implements Serializable {
 
     private static final long serialVersionUID = -7243554022847965126L;
 
+    public static final String FIND = "SP_CONSULTA_PRODUTO";
+
     @Id
+    @Column(name = "P_ID")
     private Long id;
 
-    @Column
+    @Column(name = "P_NAME")
     private String name;
 
     @Column

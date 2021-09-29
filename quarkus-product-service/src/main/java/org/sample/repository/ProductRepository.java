@@ -6,21 +6,16 @@ import java.util.Optional;
 
 import javax.annotation.PostConstruct;
 import javax.enterprise.context.ApplicationScoped;
-import javax.inject.Inject;
-import javax.persistence.EntityManager;
-import javax.persistence.ParameterMode;
 import javax.ws.rs.NotFoundException;
 
-import org.hibernate.procedure.ProcedureCall;
 import org.sample.model.Product;
 
+import core.persistence.repository.CoreSpRepository;
+
 @ApplicationScoped
-public class ProductRepository {
+public class ProductRepository extends CoreSpRepository<Product> {
 
     private List<Product> products;
-
-    @Inject
-    EntityManager entityManager;
 
     @PostConstruct
     public void init(){
@@ -31,8 +26,8 @@ public class ProductRepository {
     }
 
     public List<Product> getAll(){
-      //  return products;
-        return callSP();
+        //return products;
+       return find();
     }
 
     public Product findById(Long id){
@@ -43,16 +38,8 @@ public class ProductRepository {
             throw new NotFoundException("Not Found!");
     }
 
-    private List<Product> callSP(){
-        try {
-            ProcedureCall sp = entityManager.createStoredProcedureQuery("sp_consulta_produto").unwrap(ProcedureCall.class);
-            sp.registerParameter("ID", Integer.TYPE, ParameterMode.IN);
-            sp.setParameter("ID", 1);
-            sp.execute();
-            List result = sp.getResultList();
-            return result;
-        }catch (Exception e) {
-           throw e;
-        }
+    private List<Product> find(){
+        return executeQuery(new Product(1l, null, null), Product.FIND);
     }
+
 }

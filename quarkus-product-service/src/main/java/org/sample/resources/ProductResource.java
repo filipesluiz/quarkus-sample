@@ -18,6 +18,8 @@ import javax.ws.rs.core.SecurityContext;
 
 import org.sample.services.ProductService;
 
+import io.quarkus.security.Authenticated;
+
 @ApplicationScoped
 @Path("/products")
 public class ProductResource {
@@ -27,6 +29,7 @@ public class ProductResource {
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
+    //@Authenticated
     public List getAll(){
         return service.getAll();
     }
@@ -46,7 +49,6 @@ public class ProductResource {
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     @Path("secutity")
-    @RolesAllowed({"READER"})
     public List getAllSecured(@Context SecurityContext ctx){
         Principal consumer = ctx.getUserPrincipal();
         System.out.println(ctx.isSecure());
