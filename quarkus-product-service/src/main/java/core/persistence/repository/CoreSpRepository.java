@@ -20,7 +20,7 @@ import core.persistence.entity.NamedSP;
 public class CoreSpRepository<T> implements CoreSpRepositoryBase<T> {
 
     @Inject
-    private EntityManager em;
+    EntityManager em;
 
     @SuppressWarnings("unchecked")
     public List<T> executeQuery(T entity, String name){

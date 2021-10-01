@@ -18,10 +18,12 @@ import javax.ws.rs.core.SecurityContext;
 
 import org.sample.services.ProductService;
 
+import core.interceptor.Logged;
 import io.quarkus.security.Authenticated;
 
 @ApplicationScoped
 @Path("/products")
+@Logged
 public class ProductResource {
 
     @Inject
@@ -30,6 +32,7 @@ public class ProductResource {
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     //@Authenticated
+    @Logged
     public List getAll(){
         return service.getAll();
     }

@@ -10,6 +10,7 @@ import javax.ws.rs.NotFoundException;
 
 import org.sample.model.Product;
 
+import core.interceptor.Logged;
 import core.persistence.repository.CoreSpRepository;
 
 @ApplicationScoped
@@ -25,6 +26,7 @@ public class ProductRepository extends CoreSpRepository<Product> {
         products.add(new Product(3L, "Product 3", "Thirty Product"));
     }
 
+    @Logged
     public List<Product> getAll(){
         //return products;
        return find();
