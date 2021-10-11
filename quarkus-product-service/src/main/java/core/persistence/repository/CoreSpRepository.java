@@ -1,8 +1,5 @@
 package core.persistence.repository;
 
-import java.lang.reflect.ParameterizedType;
-import java.lang.reflect.Type;
-import java.lang.reflect.TypeVariable;
 import java.util.List;
 import java.util.stream.Stream;
 
@@ -15,6 +12,8 @@ import org.hibernate.procedure.ProcedureCall;
 import org.hibernate.query.procedure.ProcedureParameter;
 
 import core.persistence.entity.NamedSP;
+import core.utils.FieldParam;
+import core.utils.ReflactionUtil;
 
 @ApplicationScoped
 public class CoreSpRepository<T> implements CoreSpRepositoryBase<T> {
@@ -35,7 +34,7 @@ public class CoreSpRepository<T> implements CoreSpRepositoryBase<T> {
     }
 
     public ProcedureCall execute(T entity, String name){
-        NamedSP storedProcedure = ReflactionUtils.findNamed(entity.getClass(), name);
+        NamedSP storedProcedure = ReflactionUtil.findNamed(entity.getClass(), name);
         ProcedureCall sp = createProcedureCall(storedProcedure.name());
         registerParameter(sp, entity, storedProcedure.paramsIn(), ParameterMode.IN);
         registerParameter(sp, entity, storedProcedure.paramsOut(), ParameterMode.OUT);
@@ -44,10 +43,10 @@ public class CoreSpRepository<T> implements CoreSpRepositoryBase<T> {
 
     public void registerParameter(ProcedureCall sp, T entity, String[] params, javax.persistence.ParameterMode mode){
         Stream.of(params).forEach(p -> {
-            FieldParam fieldParam =  ReflactionUtils.findField(entity.getClass(), p, entity);
-            sp.registerParameter(p, fieldParam.type, mode);
+            FieldParam fieldParam =  ReflactionUtil.findField(entity.getClass(), p, entity);
+            sp.registerParameter(p, fieldParam.getType(), mode);
             ((ProcedureParameter<?>) sp.getParameter(p)).enablePassingNulls(true);
-            sp.setParameter(p, fieldParam.value);
+            sp.setParameter(p, fieldParam.getValue());
         });
     }
    

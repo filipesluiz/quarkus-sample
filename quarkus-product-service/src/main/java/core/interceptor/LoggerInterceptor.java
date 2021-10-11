@@ -1,5 +1,7 @@
 package core.interceptor;
 
+import java.util.UUID;
+
 import javax.annotation.Priority;
 import javax.inject.Inject;
 import javax.interceptor.AroundInvoke;
@@ -10,27 +12,28 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import org.jboss.logging.Logger;
 
+import core.logging.LogStructure;
 import core.persistence.exceptions.CoreException;
 import core.persistence.exceptions.MessageTypeCoreException;
 
 @Logged
 @Interceptor
-@Priority(20)
+@Priority(30)
 class LoggerInteceptor {
 
     @Inject
-    Logger log;
+    Logger LOG;
 
     @AroundInvoke 
     Object interceptMethod(InvocationContext context) {
         try {
             Object ret;
-            log.info(getLogJsonFormat(context));
+            //LOG.info(getLogJsonFormat(context));
             ret = context.proceed();
-            log.info(getLogJsonFormat(context));
+            //LOG.info(getLogJsonFormat(context));
             return ret;
         } catch (Exception e) {
-            throw new CoreException(MessageTypeCoreException.INTERCEPTOR_PROCESS_ERROR);
+            throw new CoreException(MessageTypeCoreException.INTERCEPTOR_PROCESS_ERROR, e);
         } 
    }
 
@@ -38,10 +41,11 @@ class LoggerInteceptor {
     String getLogJsonFormat(InvocationContext context){
         try {
             LogStructure log = new LogStructure();
-            
+            log.setRequestID(UUID.randomUUID().toString());
+            //log.setRequestUrl(requestUrl);
             return new ObjectMapper().writeValueAsString(log);
         } catch (Exception e) {
-            throw new CoreException(MessageTypeCoreException.INTERCEPTOR_PROCESS_ERROR);
+            throw new CoreException(MessageTypeCoreException.INTERCEPTOR_PROCESS_ERROR, e);
         }
    }
 

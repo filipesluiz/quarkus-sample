@@ -1,0 +1,23 @@
+
+GET https://pje.trt3.jus.br/pje-consulta-api/api/processos/dadosbasicos/00379003920025030066 HTTP/1.1
+content-type: application/json
+X-Grau-Instancia: 1 
+
+###
+GET https://pje.trt8.jus.br/pje-consulta-api/api/processos/dadosbasicos/00912004719965080013 HTTP/1.1
+content-type: application/json
+X-Grau-Instancia: 1 
+
+###
+GET https://pje.trt10.jus.br/pje-consulta-api/api/processos/dadosbasicos/00000727020165100018 HTTP/1.1
+content-type: application/json
+X-Grau-Instancia: 1 
+
+
+###
+GET https://pje.trt18.jus.br/pje-consulta-api/api/processos/dadosbasicos/00000705520155180231 HTTP/1.1
+content-type: application/json
+X-Grau-Instancia: 1 
+
+
+

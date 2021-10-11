@@ -1,4 +1,4 @@
-package core.interceptor;
+package core.logging;
 
 public class LogStructure {
     
@@ -8,7 +8,7 @@ public class LogStructure {
 
     private String requestMethod;
 
-    private String header;
+    private String headers;
 
     private Integer statusCode;
     
@@ -26,7 +26,7 @@ public class LogStructure {
 
     private String service;
 
-    private String elapsedTime;
+    private Long elapsedTime;
 
     public String getRequestID() {
         return requestID;
@@ -52,12 +52,12 @@ public class LogStructure {
         this.requestMethod = requestMethod;
     }
 
-    public String getHeader() {
-        return header;
+    public String getHeaders() {
+        return headers;
     }
 
-    public void setHeader(String header) {
-        this.header = header;
+    public void setHeaders(String headers) {
+        this.headers = headers;
     }
 
     public Integer getStatusCode() {
@@ -124,11 +124,11 @@ public class LogStructure {
         this.service = service;
     }
 
-    public String getElapsedTime() {
+    public Long getElapsedTime() {
         return elapsedTime;
     }
 
-    public void setElapsedTime(String elapsedTime) {
+    public void setElapsedTime(Long elapsedTime) {
         this.elapsedTime = elapsedTime;
     }
    

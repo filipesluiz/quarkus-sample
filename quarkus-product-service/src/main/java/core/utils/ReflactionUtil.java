@@ -1,4 +1,4 @@
-package core.persistence.repository;
+package core.utils;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.ParameterizedType;
@@ -11,8 +11,9 @@ import core.persistence.entity.NamedSP;
 import core.persistence.entity.NamedSPs;
 import core.persistence.exceptions.CoreException;
 import core.persistence.exceptions.MessageTypeCoreException;
+import core.persistence.repository.CoreSpRepository;
 
-public interface ReflactionUtils {
+public interface ReflactionUtil {
     
     static NamedSP findNamed(Class<?> clazz, String name){
         NamedSPs queries = clazz.getAnnotation(NamedSPs.class);
@@ -38,7 +39,7 @@ public interface ReflactionUtils {
                    
             
         } catch (IllegalArgumentException | IllegalAccessException e) {
-            throw new CoreException(MessageTypeCoreException.NOT_FOUND_VALUE_PARAM_IN_ENTITY);
+            throw new CoreException(MessageTypeCoreException.NOT_FOUND_VALUE_PARAM_IN_ENTITY, e);
         }
     }
 
