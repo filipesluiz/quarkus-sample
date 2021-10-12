@@ -1,7 +1,13 @@
 package core.logging;
 
-public class LogStructure {
+public class LogInfo {
     
+    public static final String REQUEST_ID_KEY = "requestID";
+
+    public static final String APP_VERSION_HEADER_KEY = "user-agent";
+
+    public static final String START_ELAPSED_TIME_KEY = "startElapsedTime";
+
     private String requestID;
 
     private String requestUrl;
@@ -14,7 +20,7 @@ public class LogStructure {
     
     private String body;
 
-    private String type;
+    private LogType type;
 
     private String user;
 
@@ -27,6 +33,16 @@ public class LogStructure {
     private String service;
 
     private Long elapsedTime;
+
+    private String cacheKey;
+    
+    private Boolean created;
+    
+    private String calledBy;
+    
+    private String ttl;
+    
+    private String tableName;
 
     public String getRequestID() {
         return requestID;
@@ -76,11 +92,11 @@ public class LogStructure {
         this.body = body;
     }
 
-    public String getType() {
+    public LogType getType() {
         return type;
     }
 
-    public void setType(String type) {
+    public void setType(LogType type) {
         this.type = type;
     }
 
@@ -131,5 +147,46 @@ public class LogStructure {
     public void setElapsedTime(Long elapsedTime) {
         this.elapsedTime = elapsedTime;
     }
+
+    public String getCacheKey() {
+        return cacheKey;
+    }
+
+    public void setCacheKey(String cacheKey) {
+        this.cacheKey = cacheKey;
+    }
+
+    public Boolean getCreated() {
+        return created;
+    }
+
+    public void setCreated(Boolean created) {
+        this.created = created;
+    }
+
+    public String getCalledBy() {
+        return calledBy;
+    }
+
+    public void setCalledBy(String calledBy) {
+        this.calledBy = calledBy;
+    }
+
+    public String getTtl() {
+        return ttl;
+    }
+
+    public void setTtl(String ttl) {
+        this.ttl = ttl;
+    }
+
+    public String getTableName() {
+        return tableName;
+    }
+
+    public void setTableName(String tableName) {
+        this.tableName = tableName;
+    }
+   
    
 }

@@ -18,5 +18,5 @@ public @interface Cached {
     @Nonbinding String key() default "";
     @Nonbinding long ttl() default -1;
     @Nonbinding TimeUnit timeUnit() default TimeUnit.MILLISECONDS;
-    @Nonbinding boolean forceConsult() default false;
+    @Nonbinding boolean isToForceConsult() default false;
 }

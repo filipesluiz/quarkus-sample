@@ -20,7 +20,7 @@ public class CoreSpRepository<T> implements CoreSpRepositoryBase<T> {
 
     @Inject
     EntityManager em;
-
+    
     @SuppressWarnings("unchecked")
     public List<T> executeQuery(T entity, String name){
         ProcedureCall sp = execute(entity, name);
@@ -52,6 +52,10 @@ public class CoreSpRepository<T> implements CoreSpRepositoryBase<T> {
    
     public ProcedureCall createProcedureCall(String procedureName){
         return em.createStoredProcedureQuery(procedureName).unwrap(ProcedureCall.class);
+    }
+
+    public String getDataBaseName(){
+        return (String) em.getProperties().get("hibernate.connection.datasource");
     }
     
 }

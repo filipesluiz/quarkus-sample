@@ -12,7 +12,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import org.jboss.logging.Logger;
 
-import core.logging.LogStructure;
+import core.logging.LogInfo;
 import core.persistence.exceptions.CoreException;
 import core.persistence.exceptions.MessageTypeCoreException;
 
@@ -40,7 +40,7 @@ class LoggerInteceptor {
 
     String getLogJsonFormat(InvocationContext context){
         try {
-            LogStructure log = new LogStructure();
+            LogInfo log = new LogInfo();
             log.setRequestID(UUID.randomUUID().toString());
             //log.setRequestUrl(requestUrl);
             return new ObjectMapper().writeValueAsString(log);
