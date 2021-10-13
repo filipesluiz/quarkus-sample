@@ -5,33 +5,19 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "type": "java",
-            "name": "Launch CoreRepository",
-            "request": "launch",
-            "mainClass": "core.persistence.repository.CoreRepository",
-            "projectName": "quarkus-product-service"
-        },
-        {
-            "type": "java",
-            "name": "Launch GSJPO700Port_GSJPO700Port_Client",
-            "request": "launch",
-            "mainClass": "br.gov.caixa.sigsj.validacontacredito.GSJPO700Port_GSJPO700Port_Client",
-            "projectName": "quarkus-product-service"
-        },
-        {
             "preLaunchTask": "quarkus:dev (quarkus-product-service)",
             "type": "java",
             "request": "attach",
             "hostName": "localhost",
             "name": "quarkus-product-service",
-            "port": 5005
+            "port": 5004
         },
         {
             "preLaunchTask": "quarkus:dev (quarkus-user-service)",
             "type": "java",
             "request": "attach",
             "hostName": "localhost",
-            "name": "Debug Quarkus application (quarkus-user-service)",
+            "name": "quarkus-user-service",
             "port": 5006
         }
     ]

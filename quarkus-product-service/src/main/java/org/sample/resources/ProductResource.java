@@ -18,12 +18,9 @@ import javax.ws.rs.core.SecurityContext;
 import org.sample.services.ProductService;
 
 import core.interceptor.Cached;
-import core.interceptor.Logged;
 
 @ApplicationScoped
 @Path("/products")
-@Cached
-@Logged
 public class ProductResource {
 
     @Inject
@@ -33,14 +30,12 @@ public class ProductResource {
     @Produces(MediaType.APPLICATION_JSON)
     //@Authenticated
     @Cached(key = "products")
-    @Logged
     public List<?> getAll(){
-        try {
-            Thread.sleep(2000);
-        } catch (InterruptedException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
+        // try {
+        //     Thread.sleep(2000);
+        // } catch (InterruptedException e) {
+        //     e.printStackTrace();
+        // }
         return service.getAll();
     }
 

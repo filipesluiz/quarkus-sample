@@ -26,10 +26,10 @@ public class ProductRepository extends CoreSpRepository<Product> {
         products.add(new Product(3L, "Product 3", "Thirty Product"));
     }
 
-    @Logged
+    @Logged(target = Product.FIND)
     public List<Product> getAll(){
         //return products;
-       return find();
+        return executeQuery(new Product(1l, null, null), Product.FIND);
     }
 
     public Product findById(Long id){
@@ -40,8 +40,5 @@ public class ProductRepository extends CoreSpRepository<Product> {
             throw new NotFoundException("Not Found!");
     }
 
-    private List<Product> find(){
-        return executeQuery(new Product(1l, null, null), Product.FIND);
-    }
 
 }

@@ -47,7 +47,7 @@ public interface ReflactionUtil {
         return (Class<?>) (getParametrizedType(clazz)).getActualTypeArguments()[0];
     }
 
-    static ParameterizedType getParametrizedType(Class<?> clazz){
+    private static ParameterizedType getParametrizedType(Class<?> clazz){
         if(clazz.getSuperclass().equals(CoreSpRepository.class)){ 
             return (ParameterizedType) clazz.getGenericSuperclass();
         } else {

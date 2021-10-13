@@ -1,8 +1,6 @@
 package core.interceptor;
 
 import java.io.IOException;
-import java.util.HashMap;
-import java.util.Map;
 
 import javax.inject.Inject;
 import javax.ws.rs.container.ContainerRequestContext;
@@ -42,22 +40,6 @@ public class LoggerRequestFilter implements ContainerRequestFilter {
         containerRequestContext.set(requestContext);
         LOG.info(JsonUtil.parseToJSON(requestLog));
     }
-
-    // //TODO: AFTER FINISH, MOVE TO CLASS
-    // LogStructure buildLogRequest(ContainerRequestContext requestContext){
-    //     LogStructure log = new LogStructure();
-    //     log.setElapsedTime(System.currentTimeMillis());
-    //     log.setAppVersion(request.getHeader(LogStructure.APP_VERSION_HEADER_KEY));
-    //     log.setEmail("filipe@teste.com");
-    //     //log.setHeaders(JsonUtil.parseToJSON(requestContext.getHeaders()));
-    //     log.setRequestID(UUID.randomUUID().toString());
-    //     log.setRequestMethod(request.method().name());
-    //     log.setRequestUrl(request.absoluteURI());
-    //     log.setType(LogStructure.Type.REQUEST);
-    //     log.setUser("filipe");
-    //     log.setUserIp(request.remoteAddress().toString());
-    //     return log;
-    // }
 
     
 }

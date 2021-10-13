@@ -28,8 +28,8 @@ public class LogBuilder {
       return logType.build(requestContext, responseContext, userIp);
     }
 
-    public LogInfo build(Cached params, Boolean isCreated, Method method, ContainerRequestContext requestContext){
-         return logType.build(params, isCreated, method, requestContext);
+    public LogInfo build(Cached params, Boolean isCreated, Method method, ContainerRequestContext requestContext, String tableName){
+         return logType.build(params, isCreated, method, requestContext, tableName);
     }
     
     

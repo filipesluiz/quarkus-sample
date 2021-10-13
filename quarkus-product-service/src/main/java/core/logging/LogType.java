@@ -39,14 +39,19 @@ public enum LogType  {
         return log;
     }
 
-    protected LogInfo build(Cached params, Boolean isCreated, Method method, ContainerRequestContext requestContext){
+    protected LogInfo build(Cached params, Boolean isCreated, Method method, ContainerRequestContext requestContext, String tableName){
         LogInfo log = new LogInfo();
         log.setRequestID((String) requestContext.getProperty(LogInfo.REQUEST_ID_KEY));
         log.setType(this);
-        log.setCacheKey(params.key());
+        log.setCacheKey(params != null 
+            ? params.key() 
+            : null);
         log.setCreated(isCreated);
         log.setCalledBy(method.getDeclaringClass().getName());
-        log.setTtl(params.ttl() + " " + params.timeUnit().name());
+        log.setTtl(params != null 
+            ? params.ttl() + " " + params.timeUnit().name() 
+            : null);
+        log.setTableName(tableName);
         return log;
     }
 }

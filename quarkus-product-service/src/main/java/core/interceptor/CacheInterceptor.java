@@ -7,8 +7,6 @@ import javax.inject.Inject;
 import javax.interceptor.AroundInvoke;
 import javax.interceptor.Interceptor;
 import javax.interceptor.InvocationContext;
-import javax.ws.rs.container.ContainerRequestContext;
-import javax.ws.rs.core.Context;
 
 import org.jboss.logging.Logger;
 import org.redisson.api.RedissonClient;
@@ -44,7 +42,7 @@ public class CacheInterceptor extends CacheImpl {
                 }
                 ret = context.proceed();
                 add(params.key(), ret, params.ttl(), params.timeUnit());
-                logCacheInfo(params, false, context.getMethod());
+                logCacheInfo(params, true, context.getMethod());
                 return ret;
             }
 
@@ -56,20 +54,9 @@ public class CacheInterceptor extends CacheImpl {
     }
 
     private void logCacheInfo(Cached params, Boolean isCreated, Method method){
-        LogInfo logStructure = LogBuilder.type(LogType.CACHE).build(params, false, method, LoggerRequestFilter.containerRequestContext.get());
+        LogInfo logStructure = LogBuilder.type(LogType.CACHE).build(params, false, method, LoggerRequestFilter.containerRequestContext.get(), null);
         LOG.info(JsonUtil.parseToJSON(logStructure));
     }
-
-    // private LogInfo buildLogCache(Cached params, Boolean isCreated, Method method){
-    //     LogInfo log = new LogInfo();
-    //     log.setRequestID((String) requestContext.getProperty(LogInfo.REQUEST_ID_KEY));
-    //     log.setType(LogStructure.LogInfo.CACHE);
-    //     log.setCacheKey(params.key());
-    //     log.setCreated(isCreated);
-    //     log.setCalledBy(method.getDeclaringClass().getName());
-    //     log.setTtl(params.ttl() + " " + params.timeUnit().name());
-    //     return log;
-    // }
 
     @Override
     protected RedissonClient getRedisClient() {

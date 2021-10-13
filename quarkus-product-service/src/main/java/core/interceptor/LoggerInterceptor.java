@@ -1,6 +1,6 @@
 package core.interceptor;
 
-import java.util.UUID;
+import java.lang.reflect.Method;
 
 import javax.annotation.Priority;
 import javax.inject.Inject;
@@ -8,13 +8,14 @@ import javax.interceptor.AroundInvoke;
 import javax.interceptor.Interceptor;
 import javax.interceptor.InvocationContext;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-
 import org.jboss.logging.Logger;
 
+import core.logging.LogBuilder;
 import core.logging.LogInfo;
+import core.logging.LogType;
 import core.persistence.exceptions.CoreException;
 import core.persistence.exceptions.MessageTypeCoreException;
+import core.utils.JsonUtil;
 
 @Logged
 @Interceptor
@@ -28,25 +29,26 @@ class LoggerInteceptor {
     Object interceptMethod(InvocationContext context) {
         try {
             Object ret;
-            //LOG.info(getLogJsonFormat(context));
             ret = context.proceed();
-            //LOG.info(getLogJsonFormat(context));
+            logDataBaseInfo(context.getMethod());
             return ret;
         } catch (Exception e) {
             throw new CoreException(MessageTypeCoreException.INTERCEPTOR_PROCESS_ERROR, e);
         } 
    }
 
+    private void logDataBaseInfo(Method method){
+        if(method.isAnnotationPresent(Logged.class)){
+            
+            LogInfo logStructure = LogBuilder.type(LogType.DATABASE).build(
+                  null
+                , null
+                , method
+                , LoggerRequestFilter.containerRequestContext.get()
+                , method.getAnnotation(Logged.class).target());
 
-    String getLogJsonFormat(InvocationContext context){
-        try {
-            LogInfo log = new LogInfo();
-            log.setRequestID(UUID.randomUUID().toString());
-            //log.setRequestUrl(requestUrl);
-            return new ObjectMapper().writeValueAsString(log);
-        } catch (Exception e) {
-            throw new CoreException(MessageTypeCoreException.INTERCEPTOR_PROCESS_ERROR, e);
+            LOG.info(JsonUtil.parseToJSON(logStructure));
         }
-   }
+    }
 
 }
