@@ -22,6 +22,7 @@
         <button class="button is-info" onclick="output(keycloak.tokenParsed)">Show Access Token</button>
         <button class="button is-warning" onclick="keycloak.logout()">Logout</button>
         <button class="button is-info" onclick="output(keycloak.authenticated ? keycloak.isTokenExpired() : 'Not Authenticated! Do Login!')">Token Expired</button>
+        <button class="button is-info" onclick="output(keycloak.token)">Show Barear Token</button>
       </div>
       <p class="subtitle">
         <strong id="username"></strong>
@@ -106,6 +107,12 @@
     }).error(function (error) {
       event('Init Error');
     });
+
+    // keycloak.updateToken(30).then(function() {
+    //   loadData();
+    // }).catch(function() {
+    //     alert('Failed to refresh token');
+    // });
 
 
   </script>

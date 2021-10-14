@@ -9,4 +9,6 @@ public abstract interface CoreSpRepositoryBase<T> {
     public abstract org.hibernate.procedure.ProcedureCall execute(T entity, String name);
 
     public abstract void registerParameter(org.hibernate.procedure.ProcedureCall sp, T entity, String[] params, javax.persistence.ParameterMode mode);
+
+    public abstract boolean setOutParametersValue(org.hibernate.procedure.ProcedureCall sp, T entity, String name);
 }

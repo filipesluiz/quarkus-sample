@@ -6,6 +6,7 @@ import java.util.Optional;
 
 import javax.annotation.PostConstruct;
 import javax.enterprise.context.ApplicationScoped;
+import javax.transaction.Transactional;
 import javax.ws.rs.NotFoundException;
 
 import org.sample.model.Product;
@@ -38,6 +39,11 @@ public class ProductRepository extends CoreSpRepository<Product> {
             return opt.get();
         else
             throw new NotFoundException("Not Found!");
+    }
+
+    @Transactional
+    public Product insert(Product product){
+        return executeUpdate(product, Product.INSERT);
     }
 
 

@@ -28,9 +28,12 @@ public class CoreSpRepository<T> implements CoreSpRepositoryBase<T> {
         return (List<T>) sp.getResultList();
     }
 
-    public int executeUpdate(T entity, String name){
+    public T executeUpdate(T entity, String name){
         ProcedureCall sp = execute(entity, name);
-        return sp.executeUpdate();
+        setOutParametersValue(sp, entity, name);
+        if(!setOutParametersValue(sp, entity, name))
+            sp.executeUpdate();
+        return entity;            
     }
 
     public ProcedureCall execute(T entity, String name){
@@ -44,9 +47,10 @@ public class CoreSpRepository<T> implements CoreSpRepositoryBase<T> {
     public void registerParameter(ProcedureCall sp, T entity, String[] params, javax.persistence.ParameterMode mode){
         Stream.of(params).forEach(p -> {
             FieldParam fieldParam =  ReflactionUtil.findField(entity.getClass(), p, entity);
-            sp.registerParameter(p, fieldParam.getType(), mode);
+            sp.registerStoredProcedureParameter(p, fieldParam.getType(), mode);
             ((ProcedureParameter<?>) sp.getParameter(p)).enablePassingNulls(true);
-            sp.setParameter(p, fieldParam.getValue());
+            if(mode.equals(ParameterMode.IN))
+                sp.setParameter(p, fieldParam.getValue());
         });
     }
    
@@ -54,8 +58,16 @@ public class CoreSpRepository<T> implements CoreSpRepositoryBase<T> {
         return em.createStoredProcedureQuery(procedureName).unwrap(ProcedureCall.class);
     }
 
-    public String getDataBaseName(){
-        return (String) em.getProperties().get("hibernate.connection.datasource");
+    public boolean setOutParametersValue(ProcedureCall sp, T entity, String name){
+        NamedSP storedProcedure = ReflactionUtil.findNamed(entity.getClass(), name);
+        if(storedProcedure.paramsOut().length == 0)
+            return Boolean.FALSE;
+
+        Stream.of(storedProcedure.paramsOut()).forEach(p -> {
+            ReflactionUtil.setFieldValue(entity.getClass(), p, entity, sp.getOutputParameterValue(p));
+        });
+
+        return Boolean.TRUE;
     }
     
 }

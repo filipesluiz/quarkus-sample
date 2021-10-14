@@ -25,11 +25,7 @@ public interface ReflactionUtil {
 
     static FieldParam findField(Class<?> clazz, String param, Object instance){
         try {
-            Field field = Stream.of(clazz.getDeclaredFields())
-                .filter(f -> 
-                    f.getName().equalsIgnoreCase(param) 
-                        || (f.isAnnotationPresent(Column.class) && f.getAnnotation(Column.class).name().equalsIgnoreCase(param)))
-                .findFirst().get();
+            Field field = findDeclaredField(clazz, param, instance);
             
             if(field != null){
                 field.setAccessible(true);
@@ -39,6 +35,34 @@ public interface ReflactionUtil {
                    
             
         } catch (IllegalArgumentException | IllegalAccessException e) {
+            throw new CoreException(MessageTypeCoreException.NOT_FOUND_VALUE_PARAM_IN_ENTITY, e);
+        }
+    }
+
+    static Object setFieldValue(Class<?> clazz, String param, Object instance, Object value){
+        try {
+            Field field = findDeclaredField(clazz, param, instance);
+            
+            if(field != null){
+                field.setAccessible(true);
+                field.set(instance, value);  
+            }      
+            return instance;
+        } catch (IllegalArgumentException | IllegalAccessException e) {
+            throw new CoreException(MessageTypeCoreException.NOT_FOUND_VALUE_PARAM_IN_ENTITY, e);
+        }
+    }
+
+    private static Field findDeclaredField(Class<?> clazz, String param, Object instance){
+        try {
+            Field field = Stream.of(clazz.getDeclaredFields())
+                .filter(f -> 
+                    f.getName().equalsIgnoreCase(param) 
+                        || (f.isAnnotationPresent(Column.class) && f.getAnnotation(Column.class).name().equalsIgnoreCase(param)))
+                .findFirst().get();
+            
+            return field;
+        } catch (IllegalArgumentException e) {
             throw new CoreException(MessageTypeCoreException.NOT_FOUND_VALUE_PARAM_IN_ENTITY, e);
         }
     }

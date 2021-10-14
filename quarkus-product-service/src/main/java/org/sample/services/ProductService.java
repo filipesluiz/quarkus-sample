@@ -30,4 +30,8 @@ public class ProductService {
         
         return product;
     }
+
+    public Product insert(Product product){
+        return repository.insert(product);
+    }
 }

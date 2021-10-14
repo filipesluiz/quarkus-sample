@@ -13,14 +13,17 @@ import core.persistence.entity.NamedSP;
 import core.persistence.entity.NamedSPs;
 
 @Entity
-@NamedSPs( 
-    @NamedSP(name = Product.FIND, paramsIn =  {"P_ID", "P_NAME"})
-)
+@NamedSPs({ 
+    @NamedSP(name = Product.FIND, paramsIn =  {"P_ID", "P_NAME"}), 
+    @NamedSP(name = Product.INSERT, paramsIn =  {"P_NAME", "P_DESCRIPTION"}, paramsOut = {"P_ID"})
+})
 public class Product implements Serializable {
 
     private static final long serialVersionUID = -7243554022847965126L;
 
-    public static final String FIND = "SP_CONSULTA_PRODUTO";
+    public static final String FIND = "SP_FIND_PRODUCT";
+
+    public static final String INSERT = "SP_INSERT_PRODUCT";
 
     @Id
     @Column(name = "P_ID")
@@ -29,7 +32,7 @@ public class Product implements Serializable {
     @Column(name = "P_NAME")
     private String name;
 
-    @Column
+    @Column(name = "P_DESCRIPTION")
     private String description;
 
     @Transient
