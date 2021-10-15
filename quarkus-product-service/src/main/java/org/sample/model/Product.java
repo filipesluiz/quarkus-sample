@@ -14,8 +14,10 @@ import core.persistence.entity.NamedSPs;
 
 @Entity
 @NamedSPs({ 
-    @NamedSP(name = Product.FIND, paramsIn =  {"P_ID", "P_NAME"}), 
-    @NamedSP(name = Product.INSERT, paramsIn =  {"P_NAME", "P_DESCRIPTION"}, paramsOut = {"P_ID"})
+    @NamedSP(name = Product.FIND,   paramsIn =  {"P_ID", "P_NAME"}), 
+    @NamedSP(name = Product.INSERT, paramsIn =  {"P_NAME", "P_DESCRIPTION"}, paramsOut = {"P_ID"}), 
+    @NamedSP(name = Product.UPDATE, paramsIn =  {"P_ID", "P_NAME", "P_DESCRIPTION"}, paramsOut = {"P_ID"}),
+    @NamedSP(name = Product.DELETE, paramsIn =  {"P_ID"}),
 })
 public class Product implements Serializable {
 
@@ -24,6 +26,10 @@ public class Product implements Serializable {
     public static final String FIND = "SP_FIND_PRODUCT";
 
     public static final String INSERT = "SP_INSERT_PRODUCT";
+
+    public static final String DELETE = "SP_DELETE_PRODUCT";
+
+    public static final String UPDATE = "SP_UPDATE_PRODUCT";
 
     @Id
     @Column(name = "P_ID")

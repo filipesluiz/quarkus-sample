@@ -30,7 +30,7 @@ public class ProductRepository extends CoreSpRepository<Product> {
     @Logged(target = Product.FIND)
     public List<Product> getAll(){
         //return products;
-        return executeQuery(new Product(1l, null, null), Product.FIND);
+        return executeQuery(new Product(), Product.FIND);
     }
 
     public Product findById(Long id){
@@ -41,9 +41,22 @@ public class ProductRepository extends CoreSpRepository<Product> {
             throw new NotFoundException("Not Found!");
     }
 
+    @Logged(target = Product.INSERT)
     @Transactional
     public Product insert(Product product){
         return executeUpdate(product, Product.INSERT);
+    }
+
+    @Logged(target = Product.DELETE)
+    @Transactional
+    public Product update(Product product){
+        return executeUpdate(product, Product.UPDATE);
+    }
+
+    @Logged(target = Product.DELETE)
+    @Transactional
+    public Product delete(Long id){
+        return executeUpdate(new Product(id, null, null), Product.DELETE);
     }
 
 

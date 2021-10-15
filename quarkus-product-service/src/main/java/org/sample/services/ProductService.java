@@ -34,4 +34,12 @@ public class ProductService {
     public Product insert(Product product){
         return repository.insert(product);
     }
+
+    public Product update(Product product){
+        return repository.update(product);
+    }
+
+    public Product delete(Long id){
+        return repository.delete(id);
+    }
 }
