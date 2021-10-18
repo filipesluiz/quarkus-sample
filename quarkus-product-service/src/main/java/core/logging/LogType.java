@@ -20,8 +20,11 @@ public enum LogType  {
         log.setBody(this.equals(RESPONSE)
             ? JsonUtil.parseToJSON(responseContext.getEntity())
             : null);
-        log.setEmail("filipe@teste.com");
+        log.setEmail(requestContext.getProperty("email") != null 
+            ?  requestContext.getProperty("email").toString()
+            : null);
         //log.setHeaders(JsonUtil.parseToJSON(responseContext.getHeaders()));
+        log.setHeaders(requestContext.getHeaderString("Authorization"));
         log.setRequestID(this.equals(REQUEST)
             ? UUID.randomUUID().toString() 
             : requestContext.getProperty(LogInfo.REQUEST_ID_KEY).toString());
@@ -31,10 +34,12 @@ public enum LogType  {
         log.setStatusCode(this.equals(RESPONSE)
             ? responseContext.getStatus()
             : null);
-        log.setUser("filipe");
+        log.setUser(requestContext.getSecurityContext().getUserPrincipal() != null 
+            ?   requestContext.getSecurityContext().getUserPrincipal().getName()
+            : null);
         log.setUserIp(userIp);
         log.setElapsedTime(this.equals(REQUEST) 
-            ? System.currentTimeMillis() 
+            ? 0
             : System.currentTimeMillis() - (Long)requestContext.getProperty(LogInfo.START_ELAPSED_TIME_KEY));
         return log;
     }
@@ -47,7 +52,7 @@ public enum LogType  {
             ? params.key() 
             : null);
         log.setCreated(isCreated);
-        log.setCalledBy(method.getDeclaringClass().getName());
+        log.setCalledBy(method.getDeclaringClass().getSimpleName());
         log.setTtl(params != null 
             ? params.ttl() + " " + params.timeUnit().name() 
             : null);

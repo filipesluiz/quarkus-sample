@@ -47,7 +47,7 @@ public class ProductRepository extends CoreSpRepository<Product> {
         return executeUpdate(product, Product.INSERT);
     }
 
-    @Logged(target = Product.DELETE)
+    @Logged(target = Product.UPDATE)
     @Transactional
     public Product update(Product product){
         return executeUpdate(product, Product.UPDATE);

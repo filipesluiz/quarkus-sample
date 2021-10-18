@@ -40,7 +40,7 @@ public class ProductWriteResource {
     @Path("update")
     public Response update(Product product){
         //try {
-            product = service.insert(product);
+            product = service.update(product);
             return Response.ok(product, MediaType.APPLICATION_JSON).build();
         // } catch (Exception e){
         //     return Response.serverError().status(Response.Status.INTERNAL_SERVER_ERROR).entity("Insert Product Failed!").build();

@@ -36,7 +36,7 @@
       <label class="label">API Request</label>
       <div class="field is-grouped">
         <div class="control is-expanded">
-          <input class="input" type="text" id="url" value="http://localhost:8080/products/" placeholder="Type API URL">
+          <input class="input" type="text" id="url" value="http://localhost:8080/read/products/" placeholder="Type API URL">
         </div>
         <div class="control">
           <a class="button is-success" onclick="request()">
@@ -97,6 +97,13 @@
     keycloak.onAuthSuccess = async function () {
       const user = await keycloak.loadUserInfo();
       document.getElementById('username').innerHTML = `User: ${user.name}`;
+      
+      setTimeout(function() {
+          keycloak.updateToken(1).then(function() {
+              alert('Using Refresh Token');
+          }).catch(function() {
+              alert('Failed to refresh token');
+          })}, 30000);
     };
 
 

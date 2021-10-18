@@ -16,7 +16,7 @@ import core.persistence.entity.NamedSPs;
 @NamedSPs({ 
     @NamedSP(name = Product.FIND,   paramsIn =  {"P_ID", "P_NAME"}), 
     @NamedSP(name = Product.INSERT, paramsIn =  {"P_NAME", "P_DESCRIPTION"}, paramsOut = {"P_ID"}), 
-    @NamedSP(name = Product.UPDATE, paramsIn =  {"P_ID", "P_NAME", "P_DESCRIPTION"}, paramsOut = {"P_ID"}),
+    @NamedSP(name = Product.UPDATE, paramsIn =  {"P_ID", "P_NAME", "P_DESCRIPTION"}),
     @NamedSP(name = Product.DELETE, paramsIn =  {"P_ID"}),
 })
 public class Product implements Serializable {

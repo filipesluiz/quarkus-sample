@@ -9,6 +9,7 @@ import javax.ws.rs.core.Context;
 import javax.ws.rs.core.UriInfo;
 import javax.ws.rs.ext.Provider;
 
+import org.eclipse.microprofile.jwt.JsonWebToken;
 import org.jboss.logging.Logger;
 
 import core.logging.LogBuilder;
@@ -26,6 +27,9 @@ public class LoggerRequestFilter implements ContainerRequestFilter {
     @Context
     UriInfo info;
 
+    @Inject
+    JsonWebToken jwt;
+
     @Context
     HttpServerRequest request;
 
@@ -35,6 +39,7 @@ public class LoggerRequestFilter implements ContainerRequestFilter {
     @Override
     public void filter(ContainerRequestContext requestContext) throws IOException {
         requestContext.setProperty(LogInfo.START_ELAPSED_TIME_KEY, System.currentTimeMillis());
+        requestContext.setProperty("email", jwt.getClaim("email"));
         LogInfo requestLog = LogBuilder.type(LogType.REQUEST).build(requestContext, null, request.remoteAddress().toString());
         requestContext.setProperty(LogInfo.REQUEST_ID_KEY, requestLog.getRequestID());
         containerRequestContext.set(requestContext);
