@@ -1,0 +1,17 @@
+POST http://localhost:8080//integration/conta/valida HTTP/1.1
+content-type: application/json
+
+{
+    "tipoJustica": 1,
+    "numeroTribunal": 1,
+    "codigoIP": "10.193.107.193", 
+    "codigoUsuario": "SGSJS01D", 
+    "conta": {
+        "numeroAgencia": 181,
+        "numeroProduto": 13,
+        "numeroConta": 2780,
+        "dvConta": 5
+    },
+    "numeroDocumentoSacador": 16337520890,
+    "valorCredito": 1
+}

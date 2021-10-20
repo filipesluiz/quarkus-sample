@@ -6,6 +6,9 @@ import javax.xml.namespace.QName;
 import javax.xml.ws.WebEndpoint;
 import javax.xml.ws.WebServiceClient;
 import javax.xml.ws.WebServiceFeature;
+
+import org.eclipse.microprofile.config.ConfigProvider;
+
 import javax.xml.ws.Service;
 
 /**
@@ -26,7 +29,8 @@ public class GSJPO700Service extends Service {
     static {
         URL url = null;
         try {
-            url = new URL("http://stfsaon005895-l:9000/mockGSJPO700HTTPSoapBinding?WSDL");
+            //url = new URL("http://stfsaon005895-l:8000/mockGSJPO700HTTPSoapBinding?WSDL");
+            url = new URL(ConfigProvider.getConfig().getValue("cicsws.validacredito.url", String.class));
         } catch (MalformedURLException e) {
             java.util.logging.Logger.getLogger(GSJPO700Service.class.getName())
                 .log(java.util.logging.Level.INFO,
