@@ -64,8 +64,7 @@ public final class GSJPO700Port_GSJPO700Port_Client {
         conta.setDVConta(9);
         entrada.setConta(conta);
         validaContaCredito.setEntrada(entrada);
-        
-        
+                
 
         //br.gov.caixa.sigsj.validacontacredito.resp.ProgramInterface.ValidaContaCredito _validacontacredito__return = port.validacontacredito(_validacontacredito_validaContaCredito);
         br.gov.caixa.sigsj.validacontacredito.resp.ProgramInterface.ValidaContaCredito _validacontacredito__return = port.validacontacredito(validaContaCredito);
