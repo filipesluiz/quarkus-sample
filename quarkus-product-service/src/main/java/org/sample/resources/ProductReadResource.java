@@ -26,7 +26,7 @@ public class ProductReadResource {
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     //@Authenticated
-    @Cached(key = "products")
+//    @Cached(key = "products")
     public List<?> getAll(){
         // try {
         //     Thread.sleep(2000);
