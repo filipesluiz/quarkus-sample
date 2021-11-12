@@ -1,0 +1,14 @@
+{
+	"cpfvalidos": [
+		{
+			"id": 1,
+			"name": "Paulo da Silva",
+			"cpf": "98555557089"
+		},
+		{
+			"id": 2,
+			"name": "Ana Silva",
+			"cpf": "64276529077"
+		}
+	]
+}

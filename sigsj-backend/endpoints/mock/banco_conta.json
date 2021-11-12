@@ -1,0 +1,30 @@
+{
+	"contasvalidas": [
+		{
+			"id": 1,
+			"agencia": 3911,
+			"conta": "951449",
+			"digito": "123",
+			"numeroprocesso": "00000000000350195889",
+			"operacao": "0330 - Depósitos Extrajudiciais INSS - Lei 9.703/98",
+			"codigoreceita": 1234,
+			"orgao": "Instituto Nacional do Seguro Social",
+			"cpfcnpj": "29.979.036/0001-40",
+			"contribuinte": "D. Pedro I",
+			"cpfcnpjcontribuinte": "74936314099"
+		},
+		{
+			"id": 2,
+			"agencia": 3911,
+			"conta": "942575",
+			"digito": "123",
+			"numeroprocesso": "00000000000350147189",
+			"operacao": "0330 - Depósitos Extrajudiciais INSS - Lei 9.703/98",
+			"codigoreceita": 1234,
+			"orgao": "Instituto Nacional do Seguro Social",
+			"cpfcnpj": "29.979.036/0001-40",
+			"contribuinte": "D. Pedro II",
+			"cpfcnpjcontribuinte": "45294877090"
+		}
+	]
+}
