@@ -1,5 +1,7 @@
 package br.gov.caixa.sigsj.resources;
 
+import java.util.Optional;
+
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import javax.ws.rs.GET;
@@ -29,11 +31,13 @@ public class ExternalServiceResource {
     @Path("/validacpf")
     public Response findByCpf(@QueryParam("cpf") String cpf){
         try {
-            Cpf result = service.findByCpf(cpf).stream().filter(i ->
+            System.out.println(cpf);
+            
+            Optional<Cpf> result = service.findByCpf(cpf).stream().filter(i ->
                 i.cpf.equals(cpf)
-            ).findFirst().get();
+            ).findFirst();
 
-            return Response.ok(result, MediaType.APPLICATION_JSON).build();
+            return Response.ok(result.isPresent() ? result.get() : null, MediaType.APPLICATION_JSON).build();
         } catch (NotFoundException e){
             return Response.serverError().status(Response.Status.NOT_FOUND).entity("CPF invalid!").build();
         }
@@ -44,11 +48,13 @@ public class ExternalServiceResource {
     @Path("/validaconta")
     public Response findByConta(@QueryParam("agencia") Long agencia, @QueryParam("conta") String conta, @QueryParam("digito") String digito){
         try {
-            Cicsws result = serviceCicsws.findByConta(agencia, conta, digito).stream().filter((i) -> 
-                i.agencia.equals(agencia) && i.conta.equals(conta) && i.digito.equals(digito)
-            ).findFirst().get();
+            System.out.println(agencia);
 
-            return Response.ok(result, MediaType.APPLICATION_JSON).build();
+            Optional<Cicsws> result = serviceCicsws.findByConta(agencia, conta, digito).stream().filter((i) -> 
+                i.agencia.equals(agencia) && i.conta.equals(conta) && i.digito.equals(digito)
+            ).findFirst();
+
+            return Response.ok(result.isPresent() ? result.get() : null, MediaType.APPLICATION_JSON).build();
         } catch (NotFoundException e){
             return Response.serverError().status(Response.Status.NOT_FOUND).entity("Conta invalid!").build();
         }
