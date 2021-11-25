@@ -16,11 +16,13 @@ public class Cicsws {
     public String cpfcnpj;
     public String contribuinte;
     public String cpfcnpjcontribuinte;
+    public String codErro;
+    public String msgErro;
 
     public Cicsws(){}
 
     public Cicsws(Long id, Long agencia, String conta, String digito, String numeroprocesso, String operacao,
-                  Long codigoreceita, String orgao, String cpfcnpj, String contribuinte, String cpfcnpjcontribuinte) {
+                  Long codigoreceita, String orgao, String cpfcnpj, String contribuinte, String cpfcnpjcontribuinte, String codErro, String msgErro) {
         this.id = id;
         this.agencia = agencia;
         this.conta = conta;
@@ -32,5 +34,7 @@ public class Cicsws {
         this.cpfcnpj = cpfcnpj;
         this.contribuinte = contribuinte;
         this.cpfcnpjcontribuinte = cpfcnpjcontribuinte;
+        this.codErro = codErro;
+        this.msgErro = msgErro;
     }
 }

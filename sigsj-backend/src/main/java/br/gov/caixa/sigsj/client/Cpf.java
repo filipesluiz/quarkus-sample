@@ -6,14 +6,14 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 public class Cpf {
 
     public Long id;
-    public String name;
+    public String nome;
     public String cpf;
 
     public Cpf(){}
 
-    public Cpf(Long id, String name, String cpf) {
+    public Cpf(Long id, String nome, String cpf) {
         this.id = id;
-        this.name = name;
+        this.nome = nome;
         this.cpf = cpf;
     }
 

@@ -2,12 +2,12 @@
 	"cpfvalidos": [
 		{
 			"id": 1,
-			"name": "Paulo da Silva",
+			"nome": "Paulo da Silva",
 			"cpf": "98555557089"
 		},
 		{
 			"id": 2,
-			"name": "Ana Silva",
+			"nome": "Ana Silva",
 			"cpf": "64276529077"
 		}
 	]
